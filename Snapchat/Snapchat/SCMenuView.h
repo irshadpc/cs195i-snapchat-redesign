@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MHTabBarController.h"
 @protocol SCMenuDelegate
 - (void)presentVC: (UIViewController *)viewController;
 - (void)dismissTableView;
@@ -19,6 +19,6 @@
 @property UIButton *camera;
 @property UIButton *friends;
 @property UIButton *settings;
-@property UIViewController<SCMenuDelegate> *delegate;
+@property UIViewController<SCMenuDelegate, MHTabBarControllerDelegate> *delegate;
 @property UITabBarController *tbc;
 @end

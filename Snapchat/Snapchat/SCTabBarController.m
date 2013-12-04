@@ -2,65 +2,73 @@
 //  SCTabBarController.m
 //  Snapchat
 //
-//  Created by Jessica Liang on 12/3/13.
+//  Created by Jessica Liang on 12/4/13.
 //  Copyright (c) 2013 Jessica Liang. All rights reserved.
 //
 
 #import "SCTabBarController.h"
-#define SELECTED_VIEW_CONTROLLER_TAG 98456345
-#import "SCCameraViewController.h"
+
 @interface SCTabBarController ()
 
 @end
 
 @implementation SCTabBarController
 
-- (id)init
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super init];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBar = [[SCTabBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50)];
-        [self.tabBar addButtonWithSelectedImage:[UIImage imageNamed:@"pusheen"] unselectedImage:[UIImage imageNamed:@"pikachu"] delegate: self andViewController:[[SCCameraViewController alloc] init]];
         
-        [self.tabBar addButtonWithSelectedImage:[UIImage imageNamed:@"pikachu"] unselectedImage:[UIImage imageNamed:@"pusheen"] delegate: self andViewController:[[SCCameraViewController alloc] init]];
-        
-        [self.tabBar addButtonWithSelectedImage:[UIImage imageNamed:@"pusheen"] unselectedImage:[UIImage imageNamed:@"pikachu"] delegate: self andViewController:[[SCCameraViewController alloc] init]];
-        
-        [self.tabBar addButtonWithSelectedImage:[UIImage imageNamed:@"pusheen"] unselectedImage:[UIImage imageNamed:@"pusheen"] delegate: self andViewController:[[SCCameraViewController alloc] init]];
-        self.view = self.tabBar;
-        [self.view addSubview:self.tabBar];
-        // Custom initialization
     }
     return self;
 }
-- (void)presentVC:(UIViewController *)viewController
-{
-    NSLog(@"kdlsjfldksjfjld");
-    UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
-    [currentView removeFromSuperview];
-    
-    // Set the view controller's frame to account for the tab bar
-    viewController.view.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-self.tabBar.frame.size.height*2);
-    
-    // Se the tag so we can find it later
-    viewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
-    
-    // Add the new view controller's view
-    [self.view insertSubview:viewController.view belowSubview:self.tabBar];
-    
-    [self presentViewController:viewController animated:YES completion:nil];
-}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tabBar addButtons];
+
 	// Do any additional setup after loading the view.
 }
-
+-(void)addNavigationBarButton{
+    UIBarButtonItem *myNavBtn = [[UIBarButtonItem alloc] initWithTitle:
+                                 @"MyButton" style:UIBarButtonItemStyleBordered target:
+                                 self action:@selector(myButtonClicked:)];
+    
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+    [self.navigationItem setRightBarButtonItem:myNavBtn];
+    
+    // create a navigation push button that is initially hidden
+    navButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [navButton setFrame:CGRectMake(60, 50, 200, 40)];
+    [navButton setTitle:@"Push Navigation" forState:UIControlStateNormal];
+    [navButton addTarget:self action:@selector(pushNewView:)
+        forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:navButton];
+    [navButton setHidden:YES];
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (BOOL)mh_tabBarController:(MHTabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index
+{
+    NSLog(@"mh_tabBarController %@ shouldSelectViewController %@ at index %u", tabBarController, viewController, index);
+    
+    // Uncomment this to prevent "Tab 3" from being selected.
+    //return (index != 2);
+    
+    return YES;
+}
+
+- (void)mh_tabBarController:(MHTabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index
+{
+    NSLog(@"mh_tabBarController %@ didSelectViewController %@ at index %u", tabBarController, viewController, index);
+}
+
 
 @end

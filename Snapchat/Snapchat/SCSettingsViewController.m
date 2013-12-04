@@ -22,6 +22,10 @@
         UITabBarItem *tbi = [self tabBarItem];
         [tbi setTitle: @"settings"];
         [tbi setImage: [UIImage imageNamed:@"pusheen"]];
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor greenColor] }
+                                                 forState:UIControlStateNormal];
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor blueColor] }
+                                                 forState:UIControlStateHighlighted];
 
     }
     return self;

@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SCMenuView.h"
 #import "SCCameraViewController.h"
+#import "MHTabBarController.h"
 
-@interface SCMenuViewController : UIViewController<SCMenuDelegate>
+@interface SCMenuViewController : UIViewController<SCMenuDelegate, MHTabBarControllerDelegate>
 @property SCCameraViewController* cameraVC;
 @end

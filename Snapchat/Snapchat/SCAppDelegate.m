@@ -16,7 +16,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor clearColor];
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:[[SCCameraViewController alloc] init]];
     [[self window] setRootViewController:[[SCCameraViewController alloc] init]];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -26,6 +26,7 @@
 }
 - (void)presentVC: (UIViewController *)viewController;
 {
+    //UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:viewController];
     [self presentViewController:viewController animated:YES completion:Nil];
 }
 - (void)dismissTableView
@@ -42,11 +43,32 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (BOOL)mh_tabBarController:(MHTabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index
+{
+    NSLog(@"mh_tabBarController %@ shouldSelectViewController %@ at index %u", tabBarController, viewController, index);
+    
+    // Uncomment this to prevent "Tab 3" from being selected.
+    //return (index != 2);
+    
+    return YES;
+}
+
+- (void)mh_tabBarController:(MHTabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index
+{
+    NSLog(@"mh_tabBarController %@ didSelectViewController %@ at index %u", tabBarController, viewController, index);
+}
+
+
 
 @end
