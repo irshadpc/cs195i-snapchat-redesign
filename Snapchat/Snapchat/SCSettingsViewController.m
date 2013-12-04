@@ -8,6 +8,7 @@
 
 #import "SCSettingsViewController.h"
 #import "SCSettingsView.h"
+#import "UIColor+SCColorPalette.h"
 @interface SCSettingsViewController ()
 
 @end
@@ -22,9 +23,10 @@
         UITabBarItem *tbi = [self tabBarItem];
         [tbi setTitle: @"settings"];
         [tbi setImage: [UIImage imageNamed:@"pusheen"]];
-        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor greenColor] }
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor blackColor
+                                                                                        ] }
                                                  forState:UIControlStateNormal];
-        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor blueColor] }
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor darkGreenColor] }
                                                  forState:UIControlStateHighlighted];
 
     }

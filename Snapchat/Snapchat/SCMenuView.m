@@ -53,10 +53,11 @@
         cam.menu = self.delegate;
         SCMessageTableViewController *tbvc = [[SCMessageTableViewController alloc] init];
         UINavigationController *messageNav = [[UINavigationController alloc] initWithRootViewController:tbvc];
-        [messageNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBackground"] forBarMetrics:UIBarMetricsDefault];
+        [messageNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"darkGreen"] forBarMetrics:UIBarMetricsDefault];
         [messageNav.navigationBar.topItem setTitle:@"Messages" ];
+        [messageNav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
         UINavigationController *settingsNav = [[UINavigationController alloc] initWithRootViewController:[[SCSettingsViewController alloc] init] ];
-        [settingsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBackground"] forBarMetrics:UIBarMetricsDefault];
+        [settingsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"darkGreen"] forBarMetrics:UIBarMetricsDefault];
         [settingsNav.navigationBar.topItem setTitle:@"Settings" ];
 
         SCRequestsTableViewController *listViewController1 = [[SCRequestsTableViewController alloc] init];
@@ -84,9 +85,9 @@
         [self.tbc setViewControllers: @[messageNav, cam, friendsNav, settingsNav]];
         UIImage *tabBarBackground = [UIImage imageNamed:@"tabBackground"];
         
-        [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];
+       // [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];
         [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-        [[UITabBar appearance] setTintColor:[UIColor redColor]];
+        //[[UITabBar appearance] setTintColor:[UIColor redColor]];
         
 
     }

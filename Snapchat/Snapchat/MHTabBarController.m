@@ -1,6 +1,6 @@
 
 #import "MHTabBarController.h"
-
+#import "UIColor+SCColorPalette.h"
 static const NSInteger TagOffset = 1000;
 
 @implementation MHTabBarController
@@ -15,9 +15,9 @@ static const NSInteger TagOffset = 1000;
         UITabBarItem *tbi = [self tabBarItem];
         [tbi setTitle: @"Friends"];
         [tbi setImage: [UIImage imageNamed:@"pusheen"]];
-        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor greenColor] }
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor lightGreenColor] }
                                                      forState:UIControlStateNormal];
-        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor blueColor] }
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor darkGreenColor] }
                                                      forState:UIControlStateHighlighted];
     }
     return  self;
@@ -341,7 +341,7 @@ static const NSInteger TagOffset = 1000;
     [button setBackgroundImage:image forState:UIControlStateNormal];
     [button setBackgroundImage:image forState:UIControlStateHighlighted];
     
-    [button setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
     //[button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 

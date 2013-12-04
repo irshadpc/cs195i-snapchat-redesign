@@ -72,7 +72,6 @@
         [self.groups addObject:group1];
         [self.groups addObject:group2];
         [self.groups addObject:group3];
-        
     }
     return self;
 }
@@ -80,7 +79,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -114,13 +112,25 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     }
     SCGroup *group = (SCGroup *)[self.groups objectAtIndex:indexPath.row];
     cell.textLabel.text = group.groupname;
     
     return cell;
 }
-
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [UIView new];
+    
+    // If you are not using ARC:
+    // return [[UIView new] autorelease];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    // This will create a "invisible" footer
+    return 0.5f;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

@@ -72,6 +72,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[SCRequestCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     }
     SCFriend *friend = (SCFriend *)[self.requests objectAtIndex:indexPath.row];
     cell.textLabel.text = friend.nickname;

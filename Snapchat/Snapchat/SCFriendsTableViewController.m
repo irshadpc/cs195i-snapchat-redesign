@@ -83,6 +83,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     }
     SCFriend *friend = (SCFriend *)[self.friends objectAtIndex:indexPath.row];
     cell.textLabel.text = friend.nickname;

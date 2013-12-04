@@ -7,6 +7,7 @@
 //
 
 #import "SCMessageTableViewController.h"
+#import "UIColor+SCColorPalette.h"
 @interface SCMessageTableViewController ()
 
 @end
@@ -20,9 +21,9 @@
         UITabBarItem *tbi = [self tabBarItem];
         [tbi setTitle: @"Messages"];
         [tbi setImage: [UIImage imageNamed:@"pusheen"]];
-        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor greenColor] }
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor lightGreenColor] }
                                                  forState:UIControlStateNormal];
-        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor blueColor] }
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor darkGreenColor] }
                                                  forState:UIControlStateHighlighted];
         // Custom initialization
         SCMessage *message1 = [[SCMessage alloc]init];
@@ -47,8 +48,10 @@
         [self.messages addObject: message1];
         [self.messages addObject: message2];
         [self.messages addObject:message3];
-        
-        self.tableView.separatorColor = [UIColor grayColor];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+
+        self.tableView.separatorColor = [UIColor separatorColor];
     }
     return self;
 }
