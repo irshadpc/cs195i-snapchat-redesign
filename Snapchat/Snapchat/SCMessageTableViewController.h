@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SCMessage.h"
 @interface SCMessageTableViewController : UITableViewController
-
+@property NSMutableArray* messages;
 @end

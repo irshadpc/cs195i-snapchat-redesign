@@ -9,6 +9,10 @@
 #import "SCMenuView.h"
 #import "SCCameraViewController.h"
 #import "SCSettingsViewController.h"
+#import "SCMessageTableViewController.h"
+#import "SCReturnCameraViewController.h"
+#import "SCFriendsTableViewController.h"
+#import "SCGroupTableViewController.h"
 @implementation SCMenuView
 @synthesize messages;
 @synthesize camera;
@@ -44,9 +48,45 @@
         [self addSubview:settings];
         
         self.tbc = [[UITabBarController alloc] init];
-        [self.tbc setViewControllers: @[[[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init], [[SCSettingsViewController alloc]init] ]];
-        [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];
+        SCReturnCameraViewController *cam = [[SCReturnCameraViewController alloc]init];
+        cam.menu = self.delegate;
+        SCMessageTableViewController *tbvc = [[SCMessageTableViewController alloc] init];
+        UINavigationController *messageNav = [[UINavigationController alloc] initWithRootViewController:tbvc];
+        [messageNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBackground"] forBarMetrics:UIBarMetricsDefault];
+        [messageNav.navigationBar.topItem setTitle:@"Messages" ];
+        UINavigationController *settingsNav = [[UINavigationController alloc] initWithRootViewController:[[SCSettingsViewController alloc] init] ];
+        [settingsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBackground"] forBarMetrics:UIBarMetricsDefault];
+        [settingsNav.navigationBar.topItem setTitle:@"Settings" ];
+
+        SCMessageTableViewController *listViewController1 = [[SCMessageTableViewController alloc] init];
+        SCFriendsTableViewController *listViewController2 = [[SCFriendsTableViewController alloc] init];
+        SCGroupTableViewController *listViewController3 = [[SCGroupTableViewController alloc] init];
         
+        listViewController1.title = @"Requests";
+        listViewController2.title = @"Friends";
+        listViewController3.title = @"Groups";
+        
+        
+        
+        NSArray *viewControllers = @[listViewController1, listViewController2, listViewController3];
+        MHTabBarController *friendsTab = [[MHTabBarController alloc] init];
+
+        friendsTab.delegate = self.delegate;
+        friendsTab.viewControllers = viewControllers;
+        friendsTab.selectedIndex = 1;
+
+        UINavigationController *friendsNav = [[UINavigationController alloc] initWithRootViewController: friendsTab];
+        [friendsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBackground"] forBarMetrics:UIBarMetricsDefault];
+        [friendsNav.navigationBar.topItem setTitle:@"Friends"];
+
+        [self.tbc setViewControllers: @[messageNav, cam, friendsNav, settingsNav]];
+        UIImage *tabBarBackground = [UIImage imageNamed:@"tabBackground"];
+        
+        [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];
+        [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+        [[UITabBar appearance] setTintColor:[UIColor redColor]];
+        
+
     }
     return self;
 }

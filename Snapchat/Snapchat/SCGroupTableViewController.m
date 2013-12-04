@@ -7,7 +7,8 @@
 //
 
 #import "SCGroupTableViewController.h"
-
+#import "SCGroup.h"
+#import "SCFriend.h"
 @interface SCGroupTableViewController ()
 
 @end
@@ -18,7 +19,60 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.groups = [NSMutableArray array];
+        
+        SCGroup *group1 = [[SCGroup alloc]init];
+        group1.groupname = @"Brown University";
+        
+        SCGroup *group2 = [[SCGroup alloc]init];
+        group2.groupname = @"Cool frandz";
+        
+        SCGroup *group3 = [[SCGroup alloc]init];
+        group3.groupname = @"Mah Peepz";
+        
+        
+        SCFriend *friend1 = [[SCFriend alloc]init];
+        friend1.username = @"ac115";
+        friend1.nickname = @"Alex Chou";
+        
+        SCFriend *friend2 = [[SCFriend alloc]init];
+        friend2.username = @"eyl";
+        friend2.nickname = @"Evan Li";
+        
+        SCFriend *friend3 = [[SCFriend alloc]init];
+        friend3.username = @"jsl15";
+        friend3.nickname = @"Jessica Liang";
+        
+        SCFriend *friend4 = [[SCFriend alloc]init];
+        friend4.username = @"lduan5";
+        friend4.nickname = @"Lucy Duan";
+        
+        SCFriend *friend5 = [[SCFriend alloc]init];
+        friend5.username = @"DB60";
+        friend5.nickname = @"D'Brickashaw Ferguson";
+        
+        SCFriend *friend6 = [[SCFriend alloc]init];
+        friend6.username = @"ibrahim4";
+        friend6.nickname = @"Ibrahim Moizoos";
+        
+        SCFriend *friend7 = [[SCFriend alloc]init];
+        friend7.username = @"Tjess6";
+        friend7.nickname = @"Thomas Jessison";
+        
+        [group1.friends addObject:friend1];
+        [group1.friends addObject:friend2];
+        [group1.friends addObject:friend3];
+        
+        [group2.friends addObject:friend4];
+        [group2.friends addObject:friend7];
+
+        [group3.friends addObject:friend5];
+        [group3.friends addObject:friend6];
+        
+        [self.groups addObject:group1];
+        [self.groups addObject:group2];
+        [self.groups addObject:group3];
+        
     }
     return self;
 }
@@ -57,9 +111,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    SCGroup *group = (SCGroup *)[self.groups objectAtIndex:indexPath.row];
+    cell.textLabel.text = group.groupname;
     
     return cell;
 }
