@@ -57,6 +57,7 @@
     sender.backgroundColor = [UIColor blueColor];
     //UITabBarController *tabBarController = [[UITabBarController alloc] init];
     SCMenuViewController *modal = [[SCMenuViewController alloc]init];
+    modal.cameraVC = self.delegate;
     //[tabBarController setViewControllers: @[[[SCCameraViewController alloc]init], modal]];
     ///[tabBarController.tabBar setBackgroundColor:[UIColor greenColor]];
     //[tabBarController.tabBar.subviews[1] removeFromSuperview];

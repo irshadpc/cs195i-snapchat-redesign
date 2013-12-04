@@ -28,6 +28,11 @@
 {
     [self presentViewController:viewController animated:YES completion:Nil];
 }
+- (void)dismissTableView
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.cameraVC dismissViewControllerAnimated:YES completion:nil];
+}
 - (void)displayTabView
 {
     self.view.backgroundColor = [UIColor redColor];

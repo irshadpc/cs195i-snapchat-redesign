@@ -10,6 +10,7 @@
 
 @protocol SCMenuDelegate
 - (void)presentVC: (UIViewController *)viewController;
+- (void)dismissTableView;
 @end
 
 @interface SCMenuView : UIView

@@ -19,6 +19,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.view = [[SCSettingsView alloc] init];
+        UITabBarItem *tbi = [self tabBarItem];
+        [tbi setTitle: @"settings"];
+        [tbi setImage: [UIImage imageNamed:@"pusheen"]];
+
     }
     return self;
 }
