@@ -20,19 +20,21 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor:[UIColor greenColor]];
-        self.messages = [[UIButton alloc] initWithFrame:CGRectMake(80, 160, 30, 30)];
+        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        CGFloat height = [UIScreen mainScreen].bounds.size.height;
+        self.messages = [[UIButton alloc] initWithFrame:CGRectMake(60, 184, 80, 80)];
         self.messages.backgroundColor = [UIColor purpleColor];
         [self.messages addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.camera = [[UIButton alloc] initWithFrame:CGRectMake(140, 200, 30, 30)];
+        self.camera = [[UIButton alloc] initWithFrame:CGRectMake(60, 304, 80, 80)];
         self.camera.backgroundColor = [UIColor blueColor];
         [self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
 
-        self.friends = [[UIButton alloc] initWithFrame:CGRectMake(80, 200, 30, 30)];
+        self.friends = [[UIButton alloc] initWithFrame:CGRectMake(180, 184, 80, 80)];
         self.friends.backgroundColor = [UIColor orangeColor];
         [self.friends addTarget:self action:@selector(friendsPressed:) forControlEvents:UIControlEventTouchUpInside];
 
-        self.settings = [[UIButton alloc] initWithFrame:CGRectMake(140, 160, 30, 30)];
+        self.settings = [[UIButton alloc] initWithFrame:CGRectMake(180, 304, 80, 80)];
         self.settings.backgroundColor = [UIColor whiteColor];
         [self.settings addTarget:self action:@selector(settingsPressed:) forControlEvents:UIControlEventTouchUpInside];
 
