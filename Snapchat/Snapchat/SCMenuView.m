@@ -8,6 +8,7 @@
 
 #import "SCMenuView.h"
 #import "SCCameraViewController.h"
+#import "SCSettingsViewController.h"
 @implementation SCMenuView
 @synthesize messages;
 @synthesize camera;
@@ -41,7 +42,7 @@
         [self addSubview:settings];
         
         self.tbc = [[UITabBarController alloc] init];
-        [self.tbc setViewControllers: @[[[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init]]];
+        [self.tbc setViewControllers: @[[[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init], [[SCSettingsViewController alloc]init] ]];
         [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];
         
     }
