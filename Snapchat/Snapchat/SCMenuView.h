@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCMenuViewController.h"
+
+@protocol SCMenuDelegate
+- (void)presentVC: (UIViewController *)viewController;
+@end
+
 @interface SCMenuView : UIView
 
 @property UIButton *messages;
 @property UIButton *camera;
 @property UIButton *friends;
 @property UIButton *settings;
-@property SCMenuViewController *delegate;
-
+@property UIViewController<SCMenuDelegate> *delegate;
+@property UITabBarController *tbc;
 @end

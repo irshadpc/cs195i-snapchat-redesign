@@ -20,11 +20,13 @@
     if (self) {
         self.view = [[SCMenuView alloc] init];
         ((SCMenuView *)self.view).delegate = self;
-        UITabBarItem *tbi = [self tabBarItem];
-        [tbi setTitle: @"menu"];
-        [tbi setImage:[UIImage imageNamed:@"pikachu"]];
+      
     }
     return self;
+}
+- (void)presentVC: (UIViewController *)viewController;
+{
+    [self presentViewController:viewController animated:YES completion:Nil];
 }
 - (void)displayTabView
 {

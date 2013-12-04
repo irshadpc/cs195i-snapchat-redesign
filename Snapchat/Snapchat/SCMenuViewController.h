@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCMenuView.h"
 
-@interface SCMenuViewController : UIViewController
+@interface SCMenuViewController : UIViewController<SCMenuDelegate>
 
 @end

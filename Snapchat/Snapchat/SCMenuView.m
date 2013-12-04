@@ -7,7 +7,7 @@
 //
 
 #import "SCMenuView.h"
-
+#import "SCCameraViewController.h"
 @implementation SCMenuView
 @synthesize messages;
 @synthesize camera;
@@ -39,24 +39,43 @@
         [self addSubview:camera];
         [self addSubview:friends];
         [self addSubview:settings];
+        
+        self.tbc = [[UITabBarController alloc] init];
+        [self.tbc setViewControllers: @[[[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init], [[SCCameraViewController alloc]init]]];
+        [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];
+        
     }
     return self;
 }
 - (void)messagePressed: (UIButton *) sender
 {
     NSLog(@"message selected");
+    self.tbc.selectedIndex = 0;
+    [self.delegate presentVC:self.tbc];
+   
 }
 - (void)cameraPressed: (UIButton *) sender
 {
     NSLog(@"camera selected");
+    self.tbc.selectedIndex = 1;
+    [self.delegate presentVC:self.tbc];
+
 }
 - (void)friendsPressed: (UIButton *) sender
 {
     NSLog(@"friends selected");
+    self.tbc.selectedIndex = 2;
+
+    [self.delegate presentVC:self.tbc];
+
 }
 - (void)settingsPressed: (UIButton *) sender
 {
     NSLog(@"settings selected");
+    self.tbc.selectedIndex = 3;
+
+    [self.delegate presentVC:self.tbc];
+
 }
 
 /*

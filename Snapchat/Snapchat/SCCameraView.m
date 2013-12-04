@@ -52,12 +52,12 @@
 - (void)openMenu: (UIButton*) sender
 {
     sender.backgroundColor = [UIColor blueColor];
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    //UITabBarController *tabBarController = [[UITabBarController alloc] init];
     SCMenuViewController *modal = [[SCMenuViewController alloc]init];
-    [tabBarController setViewControllers: @[[[SCCameraViewController alloc]init], modal]];
-    [tabBarController.tabBar setBackgroundColor:[UIColor greenColor]];
+    //[tabBarController setViewControllers: @[[[SCCameraViewController alloc]init], modal]];
+    ///[tabBarController.tabBar setBackgroundColor:[UIColor greenColor]];
     //[tabBarController.tabBar.subviews[1] removeFromSuperview];
-    [delegate presentModal:tabBarController];
+    [delegate presentModal:modal];
     
 }
 - (void)switchCamera:(UIButton*) sender
