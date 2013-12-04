@@ -1,5 +1,5 @@
 //
-//  SCRequestCell.h
+//  SCRequestsTableViewController.h
 //  Snapchat
 //
 //  Created by Jessica Liang on 12/4/13.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCRequestCell : UITableViewCell
-{
-    UIButton *acceptButton;
-    UIButton *rejectButton;
-}
+@interface SCRequestsTableViewController : UITableViewController
+
 @end

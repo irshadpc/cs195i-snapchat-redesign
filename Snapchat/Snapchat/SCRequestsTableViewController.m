@@ -1,47 +1,24 @@
 //
-//  SCFriendsTableViewController.m
+//  SCRequestsTableViewController.m
 //  Snapchat
 //
 //  Created by Jessica Liang on 12/4/13.
 //  Copyright (c) 2013 Jessica Liang. All rights reserved.
 //
-
-#import "SCFriendsTableViewController.h"
-#import "SCFriend.h"
 #import "SCRequestCell.h"
-@interface SCFriendsTableViewController ()
+#import "SCRequestsTableViewController.h"
+
+@interface SCRequestsTableViewController ()
 
 @end
 
-@implementation SCFriendsTableViewController
+@implementation SCRequestsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.friends = [NSMutableArray array];
-        
-        SCFriend *friend1 = [[SCFriend alloc]init];
-        friend1.username = @"jck2";
-        friend1.nickname = @"Jake Kaufman";
-        
-        SCFriend *friend2 = [[SCFriend alloc]init];
-        friend2.username = @"ac115";
-        friend2.nickname = @"Alex Chou";
-        
-        SCFriend *friend3 = [[SCFriend alloc]init];
-        friend3.username = @"eyl";
-        friend3.nickname = @"Evan Li";
-        
-        SCFriend *friend4 = [[SCFriend alloc]init];
-        friend4.username = @"jsl15";
-        friend4.nickname = @"Jessica Liang";
-        
-        [self.friends addObject:friend1];
-        [self.friends addObject:friend2];
-        [self.friends addObject:friend3];
-        [self.friends addObject: friend4];
-        
+        // Custom initialization
     }
     return self;
 }
@@ -67,14 +44,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.friends count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,10 +61,11 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[SCRequestCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    SCFriend *friend = (SCFriend *)[self.friends objectAtIndex:indexPath.row];
-    cell.textLabel.text = friend.nickname;
+    
+    
+    // Configure the cell...
     
     return cell;
 }

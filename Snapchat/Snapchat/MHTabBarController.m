@@ -323,19 +323,19 @@ static const NSInteger TagOffset = 1000;
 
 - (void)selectTabButton:(UIButton *)button
 {
-    [button setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    UIImage *image = [[UIImage imageNamed:@"tabBackground"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
+    UIImage *image = [[UIImage imageNamed:@"lightGreen"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     [button setBackgroundImage:image forState:UIControlStateNormal];
     [button setBackgroundImage:image forState:UIControlStateHighlighted];
     
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     //[button setTitleShadowColor:[UIColor colorWithWhite:0.0f alpha:0.5f] forState:UIControlStateNormal];
 }
 
 - (void)deselectTabButton:(UIButton *)button
 {
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     UIImage *image = [[UIImage imageNamed:@"tabBackground"] stretchableImageWithLeftCapWidth:1 topCapHeight:0];
     [button setBackgroundImage:image forState:UIControlStateNormal];
