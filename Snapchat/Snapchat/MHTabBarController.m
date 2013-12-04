@@ -9,7 +9,19 @@ static const NSInteger TagOffset = 1000;
     UIView *contentContainerView;
     UIImageView *indicatorImageView;
 }
-
+- (id)init
+{
+    if (self = [super init]) {
+        UITabBarItem *tbi = [self tabBarItem];
+        [tbi setTitle: @"Friends"];
+        [tbi setImage: [UIImage imageNamed:@"pusheen"]];
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor greenColor] }
+                                                     forState:UIControlStateNormal];
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor blueColor] }
+                                                     forState:UIControlStateHighlighted];
+    }
+    return  self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -329,8 +341,8 @@ static const NSInteger TagOffset = 1000;
     [button setBackgroundImage:image forState:UIControlStateNormal];
     [button setBackgroundImage:image forState:UIControlStateHighlighted];
     
-    [button setTitleColor:[UIColor colorWithRed:175/255.0f green:85/255.0f blue:58/255.0f alpha:1.0f] forState:UIControlStateNormal];
-    [button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    //[button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 - (CGFloat)tabBarHeight

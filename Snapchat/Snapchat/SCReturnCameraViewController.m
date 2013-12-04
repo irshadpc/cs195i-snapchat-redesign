@@ -7,6 +7,7 @@
 //
 
 #import "SCReturnCameraViewController.h"
+#import "SCCameraViewController.h"
 
 @interface SCReturnCameraViewController ()
 
@@ -19,7 +20,7 @@
     [tbi setTitle: @"camera"];
     [tbi setImage: [UIImage imageNamed:@"pusheen"]];
     if (self = [super init]) {
-        
+        //[self.view setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
 }
@@ -27,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.menu dismissTableView];
+    [self presentModalViewController:[[SCCameraViewController alloc] init] animated:YES];
 	// Do any additional setup after loading the view.
 }
 

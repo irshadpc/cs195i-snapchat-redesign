@@ -8,7 +8,6 @@
 
 #import "SCCameraView.h"
 #import "SCMenuViewController.h"
-#import "SCTabBarController.h"
 #import "MHTabBarController.h"
 @interface SCCameraView ()
 {

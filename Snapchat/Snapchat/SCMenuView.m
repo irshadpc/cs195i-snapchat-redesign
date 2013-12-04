@@ -11,6 +11,7 @@
 #import "SCSettingsViewController.h"
 #import "SCMessageTableViewController.h"
 #import "SCReturnCameraViewController.h"
+#import "SCFriendsTableViewController.h"
 @implementation SCMenuView
 @synthesize messages;
 @synthesize camera;
@@ -57,7 +58,7 @@
         [settingsNav.navigationBar.topItem setTitle:@"Settings" ];
 
         SCMessageTableViewController *listViewController1 = [[SCMessageTableViewController alloc] init];
-        SCMessageTableViewController *listViewController2 = [[SCMessageTableViewController alloc] init];
+        SCFriendsTableViewController *listViewController2 = [[SCFriendsTableViewController alloc] init];
         SCMessageTableViewController *listViewController3 = [[SCMessageTableViewController alloc] init];
         
         listViewController1.title = @"Requests";
@@ -65,14 +66,15 @@
         listViewController3.title = @"Groups";
         
         
+        
         NSArray *viewControllers = @[listViewController1, listViewController2, listViewController3];
-        MHTabBarController *tabBarController = [[MHTabBarController alloc] init];
+        MHTabBarController *friendsTab = [[MHTabBarController alloc] init];
 
-        tabBarController.delegate = self.delegate;
-        tabBarController.viewControllers = viewControllers;
-        tabBarController.selectedIndex = 1;
+        friendsTab.delegate = self.delegate;
+        friendsTab.viewControllers = viewControllers;
+        friendsTab.selectedIndex = 1;
 
-        UINavigationController *friendsNav = [[UINavigationController alloc] initWithRootViewController: tabBarController];
+        UINavigationController *friendsNav = [[UINavigationController alloc] initWithRootViewController: friendsTab];
         [friendsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBackground"] forBarMetrics:UIBarMetricsDefault];
         [friendsNav.navigationBar.topItem setTitle:@"Friends"];
 
