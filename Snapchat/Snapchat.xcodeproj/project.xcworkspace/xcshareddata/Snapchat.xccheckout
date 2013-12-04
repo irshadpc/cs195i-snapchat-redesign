@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C8E50E80-B5AE-4884-A4CE-E5CB828DE6C7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Snapchat</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>79A037B3-932A-4B92-A46E-F80FEC0303FC</key>
+		<string>https://github.com/eyli/cs195i-snapchat-redesign.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Snapchat/Snapchat.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>79A037B3-932A-4B92-A46E-F80FEC0303FC</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/eyli/cs195i-snapchat-redesign.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>79A037B3-932A-4B92-A46E-F80FEC0303FC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>79A037B3-932A-4B92-A46E-F80FEC0303FC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cs195i-snapchat-redesign</string>
+		</dict>
+	</array>
+</dict>
+</plist>
