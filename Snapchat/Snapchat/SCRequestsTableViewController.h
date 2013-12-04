@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SCRequestsTableViewController : UITableViewController
-
+@property NSMutableArray *requests;
 @end

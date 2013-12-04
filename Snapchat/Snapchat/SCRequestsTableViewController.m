@@ -7,7 +7,7 @@
 //
 #import "SCRequestCell.h"
 #import "SCRequestsTableViewController.h"
-
+#import "SCFriend.h"
 @interface SCRequestsTableViewController ()
 
 @end
@@ -18,7 +18,19 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.requests = [NSMutableArray array];
+        
+        SCFriend *friend1 = [[SCFriend alloc]init];
+        friend1.username = @"ocarillo";
+        friend1.nickname = @"Oscar Carillo";
+        
+        SCFriend *friend2 = [[SCFriend alloc]init];
+        friend2.username = @"ttran";
+        friend2.nickname = @"Tommy Tran";
+        
+        [self.requests addObject:friend1];
+        [self.requests addObject:friend2];
+        
     }
     return self;
 }
@@ -44,16 +56,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.requests count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,9 +73,8 @@
     if (!cell) {
         cell = [[SCRequestCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    
-    // Configure the cell...
+    SCFriend *friend = (SCFriend *)[self.requests objectAtIndex:indexPath.row];
+    cell.textLabel.text = friend.nickname;
     
     return cell;
 }

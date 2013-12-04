@@ -13,6 +13,7 @@
 #import "SCReturnCameraViewController.h"
 #import "SCFriendsTableViewController.h"
 #import "SCGroupTableViewController.h"
+#import "SCRequestsTableViewController.h"
 @implementation SCMenuView
 @synthesize messages;
 @synthesize camera;
@@ -58,9 +59,10 @@
         [settingsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBackground"] forBarMetrics:UIBarMetricsDefault];
         [settingsNav.navigationBar.topItem setTitle:@"Settings" ];
 
-        SCMessageTableViewController *listViewController1 = [[SCMessageTableViewController alloc] init];
+        SCRequestsTableViewController *listViewController1 = [[SCRequestsTableViewController alloc] init];
         SCFriendsTableViewController *listViewController2 = [[SCFriendsTableViewController alloc] init];
         SCGroupTableViewController *listViewController3 = [[SCGroupTableViewController alloc] init];
+        
         
         listViewController1.title = @"Requests";
         listViewController2.title = @"Friends";
