@@ -12,6 +12,7 @@
 #import "SCMessageTableViewController.h"
 #import "SCReturnCameraViewController.h"
 #import "SCFriendsTableViewController.h"
+#import "SCGroupTableViewController.h"
 @implementation SCMenuView
 @synthesize messages;
 @synthesize camera;
@@ -59,7 +60,7 @@
 
         SCMessageTableViewController *listViewController1 = [[SCMessageTableViewController alloc] init];
         SCFriendsTableViewController *listViewController2 = [[SCFriendsTableViewController alloc] init];
-        SCMessageTableViewController *listViewController3 = [[SCMessageTableViewController alloc] init];
+        SCGroupTableViewController *listViewController3 = [[SCGroupTableViewController alloc] init];
         
         listViewController1.title = @"Requests";
         listViewController2.title = @"Friends";
