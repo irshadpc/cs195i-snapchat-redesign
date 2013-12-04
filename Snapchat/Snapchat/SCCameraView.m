@@ -33,15 +33,15 @@
     NSLog(@"Width: %f, Height: %f", [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     UIImage *background_image =  [UIImage imageNamed:@"camera image"];
     self.background_image_view = [[UIImageView alloc] initWithImage:background_image];
-    self.menuButton = [[UIButton alloc] initWithFrame:CGRectMake(width - 300, height - 50, 30, 30)];
+    self.menuButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 518, 30, 30)];
     self.menuButton.backgroundColor = [UIColor redColor];
     [self.menuButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.switchButton = [[UIButton alloc] initWithFrame:CGRectMake(width - 50, height - 50, 30, 30)];
+    self.switchButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 518, 30, 30)];
     self.switchButton.backgroundColor = [UIColor purpleColor];
     [self.switchButton addTarget:self action:@selector(switchCamera:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.snapButton = [[UIButton alloc] initWithFrame:CGRectMake(width - 190, height - 80, 60, 60)];
+    self.snapButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 488, 60, 60)];
     self.snapButton.backgroundColor = [UIColor greenColor];
     [self.snapButton addTarget:self action:@selector(switchCamera:) forControlEvents:UIControlEventTouchUpInside];
 
