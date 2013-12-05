@@ -32,21 +32,38 @@
         self.username.text = @"Username";
         //[self.messages addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.phonenumber = [[UILabel alloc] initWithFrame:CGRectMake(10, 110, 180, 30)];
+        UIView* separatorLineView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 101, 320, 1)];
+        separatorLineView1.backgroundColor = [UIColor separatorColor]; // set color as you want.
+
+        
+        self.phonenumber = [[UILabel alloc] initWithFrame:CGRectMake(10, 111, 180, 30)];
         self.phonenumber.text = @"Mobile #";
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.email = [[UILabel alloc] initWithFrame:CGRectMake(10, 150, 180, 30)];
+        UIView* separatorLineView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 142, 320, 1)];
+        separatorLineView2.backgroundColor = [UIColor separatorColor]; // set color as you want.
+        
+        self.email = [[UILabel alloc] initWithFrame:CGRectMake(10, 152, 180, 30)];
         self.email.text = @"Email Address";
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.sounds = [[UILabel alloc] initWithFrame:CGRectMake(10, 190, 180, 30)];
+        UIView* separatorLineView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 183, 320, 1)];
+        separatorLineView3.backgroundColor = [UIColor separatorColor]; // set color as you want.
+        
+        self.sounds = [[UILabel alloc] initWithFrame:CGRectMake(10, 193, 180, 30)];
         self.sounds.text = @"Notification Sounds";
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.privacy = [[UILabel alloc] initWithFrame:CGRectMake(10, 230, 210, 30)];
+        UIView* separatorLineView4 = [[UIView alloc] initWithFrame:CGRectMake(0, 224, 320, 1)];
+        separatorLineView4.backgroundColor = [UIColor separatorColor]; // set color as you want.
+        
+        self.privacy = [[UILabel alloc] initWithFrame:CGRectMake(10, 234, 210, 30)];
         self.privacy.text = @"Who Can Send Me Snaps?";
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIView* separatorLineView5 = [[UIView alloc] initWithFrame:CGRectMake(0, 265, 320, 1)];
+        separatorLineView5.backgroundColor = [UIColor separatorColor]; // set color as you want.
+
         
         self.username_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 70, 150, 30)];
         self.username_field.text = @"jck2";
@@ -55,25 +72,25 @@
         self.username_field.textAlignment = UITextAlignmentRight;
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.phonenumber_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 110, 150, 30)];
+        self.phonenumber_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 111, 150, 30)];
         self.phonenumber_field.text = @"123-456-7890";
         self.phonenumber_field.textColor = [UIColor lightGreenColor];
         self.phonenumber_field.textAlignment = UITextAlignmentRight;
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
 
-        self.email_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 150, 150, 30)];
+        self.email_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 152, 150, 30)];
         self.email_field.text = @"j@brown.edu"; //might need escape character for @
         self.email_field.textColor = [UIColor lightGreenColor];
         self.email_field.textAlignment = UITextAlignmentRight;
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.sounds_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 190, 150, 30)];
+        self.sounds_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 193, 150, 30)];
         self.sounds_field.text = @"Off"; //might need escape character for @
         self.sounds_field.textColor = [UIColor lightGreenColor];
         self.sounds_field.textAlignment = UITextAlignmentRight;
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.privacy_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 230, 150, 30)];
+        self.privacy_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 234, 150, 30)];
         self.privacy_field.text = @"My Friends"; //might need escape character for @
         self.privacy_field.textColor = [UIColor lightGreenColor];
         self.privacy_field.textAlignment = UITextAlignmentRight;
@@ -96,6 +113,12 @@
         [self addSubview:sounds_field];
         [self addSubview:privacy_field];
         [self addSubview:save];
+        [self addSubview:separatorLineView1];
+        [self addSubview:separatorLineView2];
+        [self addSubview:separatorLineView3];
+        [self addSubview:separatorLineView4];
+        [self addSubview:separatorLineView5];
+
   
         
         
