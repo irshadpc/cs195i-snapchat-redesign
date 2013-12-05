@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SCFriend.h"
 @interface SCLightBox : UIView
+@property SCFriend *selectedfriend;
 @property UIButton *exitButton;
+@property UIButton *editButton;
+@property UIButton *deleteButton;
+@property UIButton *blockButton;
+@property UILabel *name;
+@property UILabel *score;
+@property UILabel *bestfriends;
+@property UILabel *groups;
+@property UILabel *bfriend1;
+@property UILabel *bfriend2;
+@property UILabel *bfriend3;
+@property UIImageView *bullet1;
+@property UIImageView *bullet2;
+@property UIImageView *bullet3;
 @end
