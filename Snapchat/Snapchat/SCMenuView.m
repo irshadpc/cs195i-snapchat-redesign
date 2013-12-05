@@ -26,8 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor:[UIColor darkGreenColor]];
-        CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        CGFloat height = [UIScreen mainScreen].bounds.size.height;
+
         self.messages = [[UIButton alloc] initWithFrame:CGRectMake(60, 184, 80, 80)];
         //self.messages.backgroundColor = [UIColor purpleColor];
         [self.messages setBackgroundImage:[UIImage imageNamed:@"messages"] forState:UIControlStateNormal];
@@ -64,6 +63,7 @@
         UINavigationController *settingsNav = [[UINavigationController alloc] initWithRootViewController:[[SCSettingsViewController alloc] init] ];
         [settingsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"darkGreen"] forBarMetrics:UIBarMetricsDefault];
         [settingsNav.navigationBar.topItem setTitle:@"Settings" ];
+        [settingsNav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
         SCRequestsTableViewController *listViewController1 = [[SCRequestsTableViewController alloc] init];
         SCFriendsTableViewController *listViewController2 = [[SCFriendsTableViewController alloc] init];
@@ -86,6 +86,7 @@
         UINavigationController *friendsNav = [[UINavigationController alloc] initWithRootViewController: friendsTab];
         [friendsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBackground"] forBarMetrics:UIBarMetricsDefault];
         [friendsNav.navigationBar.topItem setTitle:@"Friends"];
+        [friendsNav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
         [self.tbc setViewControllers: @[messageNav, cam, friendsNav, settingsNav]];
         UIImage *tabBarBackground = [UIImage imageNamed:@"tabBackground"];
