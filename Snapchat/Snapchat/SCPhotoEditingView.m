@@ -38,6 +38,8 @@
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
     separatorLineView.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
     [nav.navigationBar addSubview:separatorLineView];
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+
     [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
 
     [self.delegate presentVC: nav];
