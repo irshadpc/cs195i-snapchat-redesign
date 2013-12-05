@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2326076518503A390041BD2D /* SCGroupLightBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2326076418503A390041BD2D /* SCGroupLightBox.m */; };
 		233AE280184FC7AA003B6283 /* SCGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 233AE27F184FC7AA003B6283 /* SCGroup.m */; };
 		233AE283184FC7D6003B6283 /* SCGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 233AE282184FC7D6003B6283 /* SCGroupTableViewController.m */; };
 		F8493A27184D2C1600BBF16B /* SCCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8493A26184D2C1600BBF16B /* SCCameraView.m */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2326076318503A390041BD2D /* SCGroupLightBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGroupLightBox.h; sourceTree = "<group>"; };
+		2326076418503A390041BD2D /* SCGroupLightBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGroupLightBox.m; sourceTree = "<group>"; };
 		233AE27E184FC7AA003B6283 /* SCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGroup.h; sourceTree = "<group>"; };
 		233AE27F184FC7AA003B6283 /* SCGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGroup.m; sourceTree = "<group>"; };
 		233AE281184FC7D6003B6283 /* SCGroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGroupTableViewController.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				F8493A69184FC8F300BBF16B /* SCRequestCell.m */,
 				F8493A71184FF15800BBF16B /* SCLightBox.h */,
 				F8493A72184FF15800BBF16B /* SCLightBox.m */,
+				2326076318503A390041BD2D /* SCGroupLightBox.h */,
+				2326076418503A390041BD2D /* SCGroupLightBox.m */,
 				F8493A41184DEF7E00BBF16B /* SCMessage.h */,
 				F8493A42184DEF7E00BBF16B /* SCMessage.m */,
 				F8493A44184DF03E00BBF16B /* SCFriend.h */,
@@ -353,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2326076518503A390041BD2D /* SCGroupLightBox.m in Sources */,
 				F8EC622A1831780600EDBE7E /* SCAppDelegate.m in Sources */,
 				F8EC62261831780600EDBE7E /* main.m in Sources */,
 				F8493A6D184FCE1C00BBF16B /* SCRequestsTableViewController.m in Sources */,

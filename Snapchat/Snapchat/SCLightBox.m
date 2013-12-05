@@ -40,7 +40,7 @@
         self.exitButton.backgroundColor = [UIColor redColor];
         [self.exitButton addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.editButton = [[UIButton alloc] initWithFrame:CGRectMake(11, 90, 72, 30)];
+        self.editButton = [[UIButton alloc] initWithFrame:CGRectMake(11, 50, 72, 30)];
         self.editButton.backgroundColor = [UIColor clearColor];
         self.editButton.layer.borderColor = [UIColor lightGreenColor].CGColor;
         self.editButton.layer.borderWidth = 1;
@@ -49,7 +49,7 @@
         [self.editButton setTitle:@"Edit Name" forState:UIControlStateNormal];
         [self.editButton setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
         
-        self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(94, 90, 72, 30)];
+        self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(94, 50, 72, 30)];
         self.deleteButton.backgroundColor = [UIColor clearColor];
         self.deleteButton.layer.borderColor = [UIColor lightGreenColor].CGColor;
         self.deleteButton.layer.borderWidth = 1;
@@ -57,8 +57,8 @@
         [self.deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
         [self.deleteButton setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
         [self.deleteButton addTarget:self action:@selector(deleteFriend:) forControlEvents:UIControlEventTouchUpInside];
-        
-        self.blockButton = [[UIButton alloc] initWithFrame:CGRectMake(177, 90, 72, 30)];
+
+        self.blockButton = [[UIButton alloc] initWithFrame:CGRectMake(177, 50, 72, 30)];
         self.blockButton.backgroundColor = [UIColor clearColor];
         self.blockButton.layer.borderColor = [UIColor lightGreenColor].CGColor;
         self.blockButton.layer.borderWidth = 1;
@@ -67,48 +67,48 @@
         [self.blockButton setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
         
         /*change the below label to something else to allow for editing the text */
-        self.name = [[UILabel alloc] initWithFrame:CGRectMake(0,40,260,30)];
+        self.name = [[UILabel alloc] initWithFrame:CGRectMake(30,10,200,30)];
         self.name.text = _selectedfriend.nickname;
         self.name.textColor = [UIColor lightGreenColor];
         self.name.textAlignment = UITextAlignmentCenter;
         
-        self.score = [[UILabel alloc] initWithFrame:CGRectMake(5,130,250,20)];
+        self.score = [[UILabel alloc] initWithFrame:CGRectMake(11,100,250,20)];
         self.score.text = [NSString stringWithFormat:@"Score: %d", (int)_selectedfriend.points];
         
-        self.bestfriends = [[UILabel alloc] initWithFrame:CGRectMake(5,160,250,20)];
+        self.bestfriends = [[UILabel alloc] initWithFrame:CGRectMake(11,130,250,20)];
         self.bestfriends.text = @"Best Friends";
         
         NSArray *friendarray = _selectedfriend.bestFriends;
-        self.bfriend1 = [[UILabel alloc] initWithFrame:CGRectMake(30,185,225,15)];
+        self.bfriend1 = [[UILabel alloc] initWithFrame:CGRectMake(36,155,225,15)];
         self.bfriend1.text = ((SCFriend *)[friendarray objectAtIndex:0]).nickname;
         self.bfriend1.font = [UIFont systemFontOfSize:10.0];
         
-        self.bfriend2 = [[UILabel alloc] initWithFrame:CGRectMake(30,205,225,15)];
+        self.bfriend2 = [[UILabel alloc] initWithFrame:CGRectMake(36,175,225,15)];
         self.bfriend2.text = ((SCFriend *)[friendarray objectAtIndex:1]).nickname;
         self.bfriend2.font = [UIFont systemFontOfSize:10.0];
         
-        self.bfriend3 = [[UILabel alloc] initWithFrame:CGRectMake(30,225,225,15)];
+        self.bfriend3 = [[UILabel alloc] initWithFrame:CGRectMake(36,195,225,15)];
         self.bfriend3.text = ((SCFriend *)[friendarray objectAtIndex:2]).nickname;
         self.bfriend3.font = [UIFont systemFontOfSize:10.0];
         
-        self.bullet1 = [[UIImageView alloc] initWithFrame:CGRectMake(5,185,15,15)];
+        self.bullet1 = [[UIImageView alloc] initWithFrame:CGRectMake(11,155,15,15)];
         [bullet1 setImage:[UIImage imageNamed:@"starBullet"]];
     
-        self.bullet2 = [[UIImageView alloc] initWithFrame:CGRectMake(5,205,15,15)];
+        self.bullet2 = [[UIImageView alloc] initWithFrame:CGRectMake(11,175,15,15)];
         [bullet2 setImage:[UIImage imageNamed:@"starBullet"]];
 
-        self.bullet3 = [[UIImageView alloc] initWithFrame:CGRectMake(5,225,15,15)];
+        self.bullet3 = [[UIImageView alloc] initWithFrame:CGRectMake(11,195,15,15)];
         [bullet3 setImage:[UIImage imageNamed:@"starBullet"]];
         
-        self.groups = [[UILabel alloc] initWithFrame:CGRectMake(5,250,250,20)];
+        self.groups = [[UILabel alloc] initWithFrame:CGRectMake(11,220,250,20)];
         self.groups.text = @"Groups";
         
         NSMutableArray *grouparray = _selectedfriend.groups;
         for (int i = 0; i < [grouparray count]; i++) {
-            CGFloat y_pos = 275 + i * 20;
-            UIImageView *groupbullet = [[UIImageView alloc] initWithFrame:CGRectMake(10, y_pos, 15, 15)];
-            UILabel *grouplabel = [[UILabel alloc] initWithFrame:CGRectMake(35,y_pos, 150, 15)];
-            UIButton *groupremove = [[UIButton alloc] initWithFrame:CGRectMake(185, y_pos, 60, 15)];
+            CGFloat y_pos = 245 + i * 20;
+            UIImageView *groupbullet = [[UIImageView alloc] initWithFrame:CGRectMake(11, y_pos, 15, 15)];
+            UILabel *grouplabel = [[UILabel alloc] initWithFrame:CGRectMake(36,y_pos, 150, 15)];
+            UIButton *groupremove = [[UIButton alloc] initWithFrame:CGRectMake(186, y_pos, 60, 15)];
             grouplabel.text = ((SCGroup *) [grouparray objectAtIndex:i]).groupname;
             grouplabel.font = [UIFont systemFontOfSize:10.0];
             [groupremove setTitle:@"Remove" forState:UIControlStateNormal];
@@ -168,10 +168,10 @@
     
     NSMutableArray *grouparray = _selectedfriend.groups;
     for (int i = 0; i < [grouparray count]; i++) {
-        CGFloat y_pos = 275 + i * 20;
-        UIImageView *groupbullet = [[UIImageView alloc] initWithFrame:CGRectMake(10, y_pos, 15, 15)];
-        UILabel *grouplabel = [[UILabel alloc] initWithFrame:CGRectMake(35,y_pos, 150, 15)];
-        UIButton *groupremove = [[UIButton alloc] initWithFrame:CGRectMake(185, y_pos, 60, 15)];
+        CGFloat y_pos = 245 + i * 20;
+        UIImageView *groupbullet = [[UIImageView alloc] initWithFrame:CGRectMake(11, y_pos, 15, 15)];
+        UILabel *grouplabel = [[UILabel alloc] initWithFrame:CGRectMake(36,y_pos, 150, 15)];
+        UIButton *groupremove = [[UIButton alloc] initWithFrame:CGRectMake(186, y_pos, 60, 15)];
         grouplabel.text = ((SCGroup *) [grouparray objectAtIndex:i]).groupname;
         grouplabel.font = [UIFont systemFontOfSize:10.0];
         [groupremove setTitle:@"Remove" forState:UIControlStateNormal];
