@@ -9,5 +9,19 @@
 #import "SCFriend.h"
 
 @implementation SCFriend
-//synthesize over properties
+@synthesize username;
+@synthesize nickname;
+@synthesize bestFriends;
+@synthesize points;
+@synthesize groups;
+@synthesize isBlocked;
+@synthesize isAdded;
+- (id) init
+{
+    if (self = [super init]) {
+        self.bestFriends = [NSMutableArray array];
+        self.groups = [NSMutableArray array];
+    }
+    return self;
+}
 @end
