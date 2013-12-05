@@ -117,6 +117,8 @@
             groupremove.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
             groupremove.layer.borderColor = [UIColor lightGreenColor].CGColor;
             groupremove.layer.borderWidth = 1;
+            groupremove.tag = i;
+            [groupremove addTarget:self action:@selector(removeGroupWithButton:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview: grouplabel];
             [self addSubview: groupremove];
             [self addSubview: groupbullet];
@@ -193,10 +195,19 @@
         groupremove.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
         groupremove.layer.borderColor = [UIColor lightGreenColor].CGColor;
         groupremove.layer.borderWidth = 1;
+        groupremove.tag = i;
+        [groupremove addTarget:self action:@selector(removeGroupWithButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview: grouplabel];
         [self addSubview: groupremove];
         [self addSubview: groupbullet];
     }
+}
+- (void)removeGroupWithButton:(UIButton *)sender {
+    NSInteger index = sender.tag;
+    [selectedfriend.groups removeObjectAtIndex:index];
+    [sender removeFromSuperview];
+    [self setNeedsDisplay];
+    /*need to add additional functionality for label to disappear in addition to button*/
 }
 - (void)removeFromSuperview
 {
