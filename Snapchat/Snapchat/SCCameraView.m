@@ -22,7 +22,7 @@
 @synthesize switchButton;
 @synthesize snapButton;
 @synthesize delegate;
-
+@synthesize isSelfie;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -47,7 +47,7 @@
     [self.snapButton setBackgroundImage:[UIImage imageNamed:@"cameraCircle"] forState:UIControlStateNormal];
     //self.snapButton.backgroundColor = [UIColor greenColor];
     [self.snapButton addTarget:self action:@selector(takeSnap:) forControlEvents:UIControlEventTouchUpInside];
-
+    self.isSelfie = NO;
     [self addSubview: self.background_image_view];
     [self addSubview:self.menuButton];
     [self addSubview:self.switchButton];
@@ -69,7 +69,14 @@
 - (void)switchCamera:(UIButton*) sender
 {
     //change background image
-    sender.backgroundColor = [UIColor blueColor];
+    if (self.isSelfie) {
+        self.isSelfie = NO;
+        background_image_view.image = [UIImage imageNamed:@"camera image"];
+    }
+    else {
+        self.isSelfie = YES;
+        background_image_view.image = [UIImage imageNamed:@"camera image 2"];
+    }
 }
 - (void)takeSnap:(UIButton*) sender
 {
