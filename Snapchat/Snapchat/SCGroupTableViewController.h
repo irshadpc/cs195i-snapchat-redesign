@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SCGroupTableViewController : UITableViewController
+#import "SCGroupLightBox.h"
+@interface SCGroupTableViewController : UITableViewController<SCGroupLightBoxDelegate>
 @property NSMutableArray *groups;
+@property SCGroupLightBox *lightBox;
 @end

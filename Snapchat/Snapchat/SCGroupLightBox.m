@@ -56,9 +56,9 @@
         self.deleteButton.layer.borderColor = [UIColor lightGreenColor].CGColor;
         self.deleteButton.layer.borderWidth = 1;
         self.deleteButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
-        [self.deleteButton setTitle:@"Delete Group" forState:UIControlStateNormal];
+        [self.deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
         [self.deleteButton setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
-        
+        [self.deleteButton addTarget:self action:@selector(deleteGroup:) forControlEvents:UIControlEventTouchUpInside];
         self.members = [[UILabel alloc] initWithFrame:CGRectMake(11,90,250,20)];
         self.members.text = @"Members";
         
@@ -77,6 +77,15 @@
 {
     return _selectedgroup;
 }
+- (void) dismiss: (UIButton*)sender
+{
+    [self removeFromSuperview];
+}
+- (void)deleteGroup:(UIButton *)sender
+{
+    [self.delegate deleteFriend:self.selectedgroup];
+}
+
 - (void)setSelectedgroup:(SCGroup *)selectedgroup
 {
     _selectedgroup = selectedgroup;

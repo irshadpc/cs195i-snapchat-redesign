@@ -124,6 +124,22 @@
     
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    self.lightBox = [[SCGroupLightBox alloc] initWithFrame:CGRectMake(30, 20, width - 60, 350)];
+    self.lightBox.selectedgroup = [self.groups objectAtIndex:indexPath.row];
+    self.lightBox.delegate = self;
+    [self.view addSubview:self.lightBox];
+}
+- (void)deleteFriend:(SCFriend *)friend
+{
+    [self.lightBox removeFromSuperview];
+    NSInteger index = [self.groups indexOfObject:friend];
+    NSIndexPath *i = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.groups removeObject:friend];
+    [self.tableView deleteRowsAtIndexPaths: @[i] withRowAnimation:UITableViewRowAnimationTop];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

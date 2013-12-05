@@ -19,6 +19,7 @@
 @property UIButton *camera;
 @property UIButton *friends;
 @property UIButton *settings;
+@property UIButton *exit;
 @property UIViewController<SCMenuDelegate, MHTabBarControllerDelegate> *delegate;
 @property UITabBarController *tbc;
 @end

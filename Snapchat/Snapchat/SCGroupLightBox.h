@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "SCGroup.h"
+@protocol SCGroupLightBoxDelegate
+- (void)deleteFriend: (SCGroup *)friend;
+@end
 @interface SCGroupLightBox : UIView
 @property SCGroup *selectedgroup;
 @property UIButton *exitButton;
@@ -16,4 +19,5 @@
 @property UIButton *addButton;
 @property UILabel *name;
 @property UILabel *members;
+@property UITableViewController<SCGroupLightBoxDelegate> *delegate;
 @end

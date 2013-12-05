@@ -13,7 +13,9 @@
 #import "UIColor+SCColorPalette.h"
 #import "SCGroup.h"
 @interface SCFriendsTableViewController ()
-
+{
+    BOOL _blockedSection;
+}
 @end
 
 @implementation SCFriendsTableViewController
@@ -22,8 +24,10 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.friends = [NSMutableArray array];
+        _blockedSection = NO;
         
+        self.friends = [NSMutableArray array];
+        self.blocked = [NSMutableArray array];
         SCFriend *friend1 = [[SCFriend alloc]init];
         friend1.username = @"ac115";
         friend1.nickname = @"Alex Chou";
@@ -143,15 +147,42 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
+    if (_blockedSection) {
+        return 2;
+    }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.friends count];
+    if (section == 0) {
+        return [self.friends count];
+    } else {
+        return [self.blocked count];
+    }
 }
-
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section == 1 && [self.blocked count] == 0) {
+        return  nil;
+    }
+    UIView *tempView=[[UIView alloc]initWithFrame:CGRectMake(0,0,320,20)];
+    tempView.backgroundColor=[UIColor lightGreenColor];
+    
+    UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(10,2,310,20)];
+    tempLabel.backgroundColor=[UIColor clearColor];
+    tempLabel.textColor = [UIColor whiteColor]; //here you can change the text color of header.
+    tempLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+    if (section == 1) {
+        tempLabel.text = @"Blocked";
+    } else {
+        tempLabel.text = @"Friends";
+    }
+    [tempView addSubview:tempLabel];
+    
+    return tempView;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -167,18 +198,28 @@
         [cell.contentView addSubview:separatorLineView];
         [cell.imageView setImage:[UIImage imageNamed:@"starBullet"]];
     }
-    SCFriend *friend = (SCFriend *)[self.friends objectAtIndex:indexPath.row];
-    cell.textLabel.text = friend.nickname;
-    cell.detailTextLabel.text = friend.username;
+    if (indexPath.section == 0) {
+        SCFriend *friend = (SCFriend *)[self.friends objectAtIndex:indexPath.row];
+        cell.textLabel.text = friend.nickname;
+        cell.detailTextLabel.text = friend.username;
+    } else {
+        SCFriend *friend = (SCFriend *)[self.blocked objectAtIndex:indexPath.row];
+        cell.textLabel.text = friend.nickname;
+        cell.detailTextLabel.text = friend.username;
+
+    }
     cell.detailTextLabel.textColor = [UIColor lightGrayColor];
-    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     self.lightbox = [[SCLightBox alloc] initWithFrame:CGRectMake(30, 20, width - 60, 350)];
-    self.lightbox.selectedfriend = [self.friends objectAtIndex:indexPath.row];
+    if (indexPath.section == 0) {
+        self.lightbox.selectedfriend = [self.friends objectAtIndex:indexPath.row];
+    } else {
+        self.lightbox.selectedfriend = [self.blocked objectAtIndex:indexPath.row];
+    }
     self.lightbox.delegate = self;
     [self.view addSubview:self.lightbox];
 }
@@ -190,7 +231,33 @@
     [self.friends removeObject:friend];
     [self.tableView deleteRowsAtIndexPaths: @[i] withRowAnimation:UITableViewRowAnimationTop];
 }
+- (void)unblockFriend:(SCFriend *)friend
+{
+    [self.lightbox removeFromSuperview];
+    friend.isBlocked = NO;
+    NSInteger removeIndex = [self.blocked indexOfObject:friend];
+    NSIndexPath *i = [NSIndexPath indexPathForItem:removeIndex inSection:1];
+    [self.blocked removeObject:friend];
+    [self.tableView deleteRowsAtIndexPaths: @[i] withRowAnimation:UITableViewRowAnimationFade];
+    if ([self.blocked count] == 0) {
+        _blockedSection= NO;
+    }
+    [self.friends addObject:friend];
+    [self.tableView reloadData];
+}
+- (void)blockFriend:(SCFriend *)friend
+{
+    [self.lightbox removeFromSuperview];
+    friend.isBlocked = YES;
+    NSInteger removeIndex = [self.friends indexOfObject:friend];
+    NSIndexPath *i = [NSIndexPath indexPathForItem:removeIndex inSection:0];
+    [self.friends removeObject:friend];
+    [self.tableView deleteRowsAtIndexPaths: @[i] withRowAnimation:UITableViewRowAnimationFade];
+    _blockedSection = YES;
 
+    [self.blocked addObject:friend];
+    [self.tableView reloadData];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

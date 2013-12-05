@@ -63,9 +63,9 @@
         self.blockButton.layer.borderColor = [UIColor lightGreenColor].CGColor;
         self.blockButton.layer.borderWidth = 1;
         self.blockButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
-        [self.blockButton setTitle:@"Block" forState:UIControlStateNormal];
         [self.blockButton setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
-        
+        [self.blockButton addTarget:self action:@selector(blockFriend:) forControlEvents:UIControlEventTouchUpInside];
+
         /*change the below label to something else to allow for editing the text */
         self.name = [[UILabel alloc] initWithFrame:CGRectMake(30,10,200,30)];
         self.name.text = _selectedfriend.nickname;
@@ -150,6 +150,14 @@
 {
     [self.delegate deleteFriend:self.selectedfriend];
 }
+- (void)blockFriend:(UIButton *)sender
+{
+    if (self.selectedfriend.isBlocked) {
+        [self.delegate unblockFriend:self.selectedfriend];
+    } else {
+        [self.delegate blockFriend:self.selectedfriend];
+    }
+}
 - (void)setSelectedfriend:(SCFriend *)select
 {
     _selectedfriend = select;
@@ -165,7 +173,12 @@
     self.bfriend2.text = ((SCFriend *)[friendarray objectAtIndex:1]).nickname;
     
     self.bfriend3.text = ((SCFriend *)[friendarray objectAtIndex:2]).nickname;
-    
+    if (select.isBlocked) {
+        [self.blockButton setTitle:@"UnBlock" forState:UIControlStateNormal];
+    } else {
+        [self.blockButton setTitle:@"Block" forState:UIControlStateNormal];
+
+    }
     NSMutableArray *grouparray = _selectedfriend.groups;
     for (int i = 0; i < [grouparray count]; i++) {
         CGFloat y_pos = 245 + i * 20;

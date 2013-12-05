@@ -10,6 +10,9 @@
 #import "SCFriend.h"
 @protocol SCLightBoxDelegate
 - (void)deleteFriend: (SCFriend *)friend;
+- (void)blockFriend:(SCFriend *)friend;
+- (void)unblockFriend:(SCFriend *)friend;
+
 @end
 @interface SCLightBox : UIView
 @property SCFriend *selectedfriend;

@@ -12,4 +12,5 @@
 @property NSMutableArray* friends;
 @property SCLightBox *lightbox;
 @property UIButton *lightBoxButton;
+@property NSMutableArray *blocked;
 @end
