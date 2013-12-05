@@ -11,7 +11,7 @@
 @interface SCFriend : NSObject
 @property NSString *username;
 @property NSString *nickname;
-@property NSArray *bestFriends;
+@property NSMutableArray *bestFriends;
 @property NSInteger *points;
 @property NSMutableArray *groups;
 @property BOOL isBlocked;

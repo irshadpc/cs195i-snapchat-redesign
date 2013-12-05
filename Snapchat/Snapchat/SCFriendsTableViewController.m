@@ -11,6 +11,7 @@
 #import "SCRequestCell.h"
 #import "SCLightBox.h"
 #import "UIColor+SCColorPalette.h"
+#import "SCGroup.h"
 @interface SCFriendsTableViewController ()
 
 @end
@@ -24,25 +25,94 @@
         self.friends = [NSMutableArray array];
         
         SCFriend *friend1 = [[SCFriend alloc]init];
-        friend1.username = @"jck2";
-        friend1.nickname = @"Jake Kaufman";
+        friend1.username = @"ac115";
+        friend1.nickname = @"Alex Chou";
         
         SCFriend *friend2 = [[SCFriend alloc]init];
-        friend2.username = @"ac115";
-        friend2.nickname = @"Alex Chou";
+        friend2.username = @"eyl";
+        friend2.nickname = @"Evan Li";
         
         SCFriend *friend3 = [[SCFriend alloc]init];
-        friend3.username = @"eyl";
-        friend3.nickname = @"Evan Li";
+        friend3.username = @"jsl15";
+        friend3.nickname = @"Jessica Liang";
         
         SCFriend *friend4 = [[SCFriend alloc]init];
-        friend4.username = @"jsl15";
-        friend4.nickname = @"Jessica Liang";
+        friend4.username = @"lduan5";
+        friend4.nickname = @"Lucy Duan";
+        
+        SCFriend *friend5 = [[SCFriend alloc]init];
+        friend5.username = @"DB60";
+        friend5.nickname = @"D'Brickashaw Ferguson";
+        
+        SCFriend *friend6 = [[SCFriend alloc]init];
+        friend6.username = @"ibrahim4";
+        friend6.nickname = @"Ibrahim Moizoos";
+        
+        SCFriend *friend7 = [[SCFriend alloc]init];
+        friend7.username = @"Tjess6";
+        friend7.nickname = @"Thomas Jessison";
+        
+        SCGroup *group1 = [[SCGroup alloc]init];
+        group1.groupname = @"Brown University";
+        
+        SCGroup *group2 = [[SCGroup alloc]init];
+        group2.groupname = @"Cool frandz";
+        
+        SCGroup *group3 = [[SCGroup alloc]init];
+        group3.groupname = @"Mah Peepz";
+        
+        [group1.friends addObject:friend1];
+        [group1.friends addObject:friend2];
+        [group1.friends addObject:friend3];
+        [friend1.groups addObject:group1];
+        [friend2.groups addObject:group1];
+        [friend3.groups addObject:group1];
+        
+        [group2.friends addObject:friend4];
+        [group2.friends addObject:friend7];
+        [friend4.groups addObject:group2];
+        [friend7.groups addObject:group2];
+        
+        [group3.friends addObject:friend5];
+        [group3.friends addObject:friend6];
+        [friend5.groups addObject:group3];
+        [friend6.groups addObject:group3];
+        
+        [friend1.bestFriends addObject:friend2];
+        [friend1.bestFriends addObject:friend3];
+        [friend1.bestFriends addObject:friend4];
+        
+        [friend2.bestFriends addObject:friend3];
+        [friend2.bestFriends addObject:friend4];
+        [friend2.bestFriends addObject:friend5];
+        
+        [friend3.bestFriends addObject:friend4];
+        [friend3.bestFriends addObject:friend5];
+        [friend3.bestFriends addObject:friend6];
+        
+        [friend4.bestFriends addObject:friend5];
+        [friend4.bestFriends addObject:friend6];
+        [friend4.bestFriends addObject:friend7];
+        
+        [friend5.bestFriends addObject:friend6];
+        [friend5.bestFriends addObject:friend7];
+        [friend5.bestFriends addObject:friend1];
+        
+        [friend6.bestFriends addObject:friend7];
+        [friend6.bestFriends addObject:friend1];
+        [friend6.bestFriends addObject:friend2];
+        
+        [friend7.bestFriends addObject:friend1];
+        [friend7.bestFriends addObject:friend2];
+        [friend7.bestFriends addObject:friend3];
         
         [self.friends addObject:friend1];
         [self.friends addObject:friend2];
         [self.friends addObject:friend3];
-        [self.friends addObject: friend4];
+        [self.friends addObject:friend4];
+        [self.friends addObject:friend5];
+        [self.friends addObject:friend6];
+        [self.friends addObject:friend7];
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
