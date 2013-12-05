@@ -7,7 +7,8 @@
 //
 
 #import "SCPhotoEditingView.h"
-
+#import "SCSelectFriendsViewController.h"
+#import "UIColor+SCColorPalette.h"
 @implementation SCPhotoEditingView
 
 - (id)initWithFrame:(CGRect)frame
@@ -25,9 +26,21 @@
         [self addSubview:exitButton];
         UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectMake(width - 100, height - 40, 80, 30)];
         [sendButton setBackgroundColor:[UIColor greenColor]];
+        [sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:sendButton];
     }
     return self;
+}
+- (void) send: (UIButton *)sender
+{
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[SCSelectFriendsViewController alloc] init]];
+    [nav.navigationBar.topItem setTitle:@"Send to..." ];
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
+    separatorLineView.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
+    [nav.navigationBar addSubview:separatorLineView];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
+
+    [self.delegate presentVC: nav];
 }
 - (void) returnToCamera:(UIButton *) sender
 {

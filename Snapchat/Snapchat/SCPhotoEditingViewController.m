@@ -37,7 +37,7 @@
 }
 - (void) presentVC:(UIViewController *)viewController
 {
-    
+    [self presentViewController:viewController animated:NO completion:Nil];
 }
 - (void)returnToCamera
 {
