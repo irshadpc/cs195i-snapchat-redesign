@@ -21,12 +21,13 @@
         UIImageView *background_image_view = [[UIImageView alloc] initWithImage:background_image];
         [self addSubview:background_image_view];
         UIButton *exitButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 30, 24, 24)];
-        exitButton.backgroundColor = [UIColor redColor];
+        [exitButton setBackgroundImage:[UIImage imageNamed:@"cancel"] forState:UIControlStateNormal];
+        //exitButton.backgroundColor = [UIColor redColor];
         [exitButton addTarget:self action:@selector(returnToCamera:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:exitButton];
         UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectMake(width - 100, height - 40, 80, 30)];
-        [sendButton setBackgroundColor:[UIColor greenColor]];
         [sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlEventTouchUpInside];
+        [sendButton setBackgroundImage:[UIImage imageNamed:@"sendButton"] forState:UIControlStateNormal];
         [self addSubview:sendButton];
     }
     return self;
