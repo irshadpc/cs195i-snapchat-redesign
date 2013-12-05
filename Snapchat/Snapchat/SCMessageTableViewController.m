@@ -20,7 +20,7 @@
     if (self) {
         UITabBarItem *tbi = [self tabBarItem];
         [tbi setTitle: @"Messages"];
-        [tbi setImage: [UIImage imageNamed:@"pusheen"]];
+        [tbi setImage: [UIImage imageNamed:@"messeges"]];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor lightGreenColor] }
                                                  forState:UIControlStateNormal];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor darkGreenColor] }

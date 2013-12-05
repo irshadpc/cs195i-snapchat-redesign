@@ -8,6 +8,7 @@
 
 #import "SCSelectFriendsViewController.h"
 #import "UIColor+SCColorPalette.h"
+#import "SCSelectFriendsCell.h"
 @interface SCSelectFriendsViewController ()
 
 @end
@@ -189,7 +190,7 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[SCSelectFriendsCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
     if (indexPath.section < [self.groups count]) {

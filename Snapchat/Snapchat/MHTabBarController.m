@@ -337,7 +337,7 @@ static const NSInteger TagOffset = 1000;
 {
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    UIImage *image = [[UIImage imageNamed:@"tabBackground"] stretchableImageWithLeftCapWidth:1 topCapHeight:0];
+    UIImage *image = [[UIImage imageNamed:@"miscTab"] stretchableImageWithLeftCapWidth:1 topCapHeight:0];
     [button setBackgroundImage:image forState:UIControlStateNormal];
     [button setBackgroundImage:image forState:UIControlStateHighlighted];
     
