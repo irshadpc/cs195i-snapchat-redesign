@@ -9,6 +9,7 @@
 #import "SCCameraView.h"
 #import "SCMenuViewController.h"
 #import "MHTabBarController.h"
+#import "SCPhotoEditingViewController.h"
 @interface SCCameraView ()
 {
     BOOL backCamera;
@@ -42,7 +43,7 @@
     
     self.snapButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 488, 60, 60)];
     self.snapButton.backgroundColor = [UIColor greenColor];
-    [self.snapButton addTarget:self action:@selector(switchCamera:) forControlEvents:UIControlEventTouchUpInside];
+    [self.snapButton addTarget:self action:@selector(takeSnap:) forControlEvents:UIControlEventTouchUpInside];
 
     [self addSubview: self.background_image_view];
     [self addSubview:self.menuButton];
@@ -53,14 +54,13 @@
 }
 - (void)openMenu: (UIButton*) sender
 {
-    sender.backgroundColor = [UIColor blueColor];
     //UITabBarController *tabBarController = [[UITabBarController alloc] init];
     SCMenuViewController *modal = [[SCMenuViewController alloc]init];
     modal.cameraVC = self.delegate;
     //[tabBarController setViewControllers: @[[[SCCameraViewController alloc]init], modal]];
     ///[tabBarController.tabBar setBackgroundColor:[UIColor greenColor]];
     //[tabBarController.tabBar.subviews[1] removeFromSuperview];
-    [delegate presentModal:modal];
+    [delegate presentModal:modal withAnimation:YES];
     
 }
 - (void)switchCamera:(UIButton*) sender
@@ -71,7 +71,10 @@
 - (void)takeSnap:(UIButton*) sender
 {
     //present editing view controller
-    sender.backgroundColor = [UIColor blueColor];
+    SCPhotoEditingViewController *modal = [[SCPhotoEditingViewController alloc]init];
+    modal.cameraVC = self.delegate;
+    [delegate presentModal:modal withAnimation:NO];
+
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -26,6 +26,7 @@
 		F8493A6A184FC8F300BBF16B /* SCRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8493A69184FC8F300BBF16B /* SCRequestCell.m */; };
 		F8493A6D184FCE1C00BBF16B /* SCRequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8493A6C184FCE1C00BBF16B /* SCRequestsTableViewController.m */; };
 		F8493A73184FF15800BBF16B /* SCLightBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F8493A72184FF15800BBF16B /* SCLightBox.m */; };
+		F8493A761850093200BBF16B /* SCPhotoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8493A751850093200BBF16B /* SCPhotoEditingViewController.m */; };
 		F8EC621A1831780600EDBE7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EC62191831780600EDBE7E /* Foundation.framework */; };
 		F8EC621C1831780600EDBE7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EC621B1831780600EDBE7E /* CoreGraphics.framework */; };
 		F8EC621E1831780600EDBE7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EC621D1831780600EDBE7E /* UIKit.framework */; };
@@ -89,6 +90,8 @@
 		F8493A6C184FCE1C00BBF16B /* SCRequestsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRequestsTableViewController.m; sourceTree = "<group>"; };
 		F8493A71184FF15800BBF16B /* SCLightBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLightBox.h; sourceTree = "<group>"; };
 		F8493A72184FF15800BBF16B /* SCLightBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLightBox.m; sourceTree = "<group>"; };
+		F8493A741850093200BBF16B /* SCPhotoEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPhotoEditingViewController.h; sourceTree = "<group>"; };
+		F8493A751850093200BBF16B /* SCPhotoEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPhotoEditingViewController.m; sourceTree = "<group>"; };
 		F8EC62161831780600EDBE7E /* Snapchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snapchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EC62191831780600EDBE7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F8EC621B1831780600EDBE7E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -172,6 +175,8 @@
 				F8493A3F184DE1F100BBF16B /* SCCameraViewController.m */,
 				F8493A28184D2C5300BBF16B /* SCPhotoEditingView.h */,
 				F8493A29184D2C5300BBF16B /* SCPhotoEditingView.m */,
+				F8493A741850093200BBF16B /* SCPhotoEditingViewController.h */,
+				F8493A751850093200BBF16B /* SCPhotoEditingViewController.m */,
 				F8493A2B184D2C7600BBF16B /* SCMenuView.h */,
 				F8493A2C184D2C7600BBF16B /* SCMenuView.m */,
 				233AE27E184FC7AA003B6283 /* SCGroup.h */,
@@ -350,6 +355,7 @@
 				F8493A2D184D2C7600BBF16B /* SCMenuView.m in Sources */,
 				F8493A58184EE10E00BBF16B /* SCReturnCameraViewController.m in Sources */,
 				F8493A43184DEF7E00BBF16B /* SCMessage.m in Sources */,
+				F8493A761850093200BBF16B /* SCPhotoEditingViewController.m in Sources */,
 				F8493A27184D2C1600BBF16B /* SCCameraView.m in Sources */,
 				F8493A61184F057C00BBF16B /* UIColor+SCColorPalette.m in Sources */,
 				F8493A55184EDBB300BBF16B /* SCSettingsViewController.m in Sources */,

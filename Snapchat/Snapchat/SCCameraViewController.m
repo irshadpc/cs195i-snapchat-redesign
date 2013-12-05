@@ -24,6 +24,8 @@
         [tbi setTitle: @"cameraaaa"];
         [tbi setImage: [UIImage imageNamed:@"pusheen"]];
 
+        
+
     }
     return self;
 }
@@ -34,9 +36,9 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void) presentModal: (UIViewController *) modal
+- (void) presentModal: (UIViewController *) modal withAnimation: (BOOL) animation
 {
-    [self presentViewController:modal animated:YES completion:nil];
+    [self presentViewController:modal animated:animation completion:nil];
 }
 - (void)didReceiveMemoryWarning
 {

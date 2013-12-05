@@ -57,13 +57,21 @@
         cam.menu = self.delegate;
         SCMessageTableViewController *tbvc = [[SCMessageTableViewController alloc] init];
         UINavigationController *messageNav = [[UINavigationController alloc] initWithRootViewController:tbvc];
-        [messageNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"darkGreen"] forBarMetrics:UIBarMetricsDefault];
+        [messageNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, 320, 10)];
+        separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
+        [messageNav.navigationBar addSubview:separatorLineView];
+
         [messageNav.navigationBar.topItem setTitle:@"Messages" ];
         [messageNav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        messageNav.navigationBar.translucent = NO;
+
         UINavigationController *settingsNav = [[UINavigationController alloc] initWithRootViewController:[[SCSettingsViewController alloc] init] ];
-        [settingsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"darkGreen"] forBarMetrics:UIBarMetricsDefault];
+        [settingsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
         [settingsNav.navigationBar.topItem setTitle:@"Settings" ];
         [settingsNav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        //settingsNav.navigationBar.translucent = NO;
+        [settingsNav.navigationBar addSubview:separatorLineView];
 
         SCRequestsTableViewController *listViewController1 = [[SCRequestsTableViewController alloc] init];
         SCFriendsTableViewController *listViewController2 = [[SCFriendsTableViewController alloc] init];
@@ -84,13 +92,14 @@
         friendsTab.selectedIndex = 1;
 
         UINavigationController *friendsNav = [[UINavigationController alloc] initWithRootViewController: friendsTab];
-        [friendsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBackground"] forBarMetrics:UIBarMetricsDefault];
+        [friendsNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
         [friendsNav.navigationBar.topItem setTitle:@"Friends"];
         [friendsNav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-
+        friendsNav.navigationBar.translucent = NO;
         [self.tbc setViewControllers: @[messageNav, cam, friendsNav, settingsNav]];
         UIImage *tabBarBackground = [UIImage imageNamed:@"tabBackground"];
-        
+        [friendsNav.navigationBar addSubview:separatorLineView];
+
        // [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];
         [[UITabBar appearance] setBackgroundImage:tabBarBackground];
         //[[UITabBar appearance] setTintColor:[UIColor redColor]];
@@ -127,7 +136,6 @@
 {
     NSLog(@"settings selected");
     self.tbc.selectedIndex = 3;
-
     [self.delegate presentVC:self.tbc];
 
 }

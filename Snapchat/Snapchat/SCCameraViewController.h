@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SCCameraViewController : UIViewController
-- (void) presentModal: (UIViewController *) modal;
+- (void) presentModal: (UIViewController *) modal withAnimation: (BOOL) animation;
 
 @end

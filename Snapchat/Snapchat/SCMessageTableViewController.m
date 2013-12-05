@@ -101,7 +101,20 @@
     }
     
     SCMessage *message = (SCMessage *)[self.messages objectAtIndex:indexPath.row];
-    UIImage *icon = [UIImage imageNamed:@"pusheen"];
+    UIImage *icon;
+    if (message.isVideo) {
+        if (message.seen) {
+            icon = [UIImage imageNamed:@"greyVideo"];
+        } else {
+            icon = [UIImage imageNamed:@"greenVideo"];
+        }
+    } else {
+        if (message.seen) {
+            icon = [UIImage imageNamed:@"greyPhoto"];
+        } else {
+            icon = [UIImage imageNamed:@"greenPhoto"];
+        }
+    }
     cell.imageView.image = icon;
     cell.textLabel.text = message.sender;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
@@ -109,9 +122,9 @@
     NSString* time = [dateFormatter stringFromDate: message.timestamp];
     cell.detailTextLabel.text = time;
     
-    cell.detailTextLabel.textColor = [UIColor grayColor];
+    cell.detailTextLabel.textColor = [UIColor separatorColor];
     if (message.seen) {
-        cell.textLabel.textColor = [UIColor grayColor];
+        cell.textLabel.textColor = [UIColor separatorColor];
     }
     
     return cell;
