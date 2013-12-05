@@ -9,6 +9,11 @@
 #import "SCLightBox.h"
 #import "UIColor+SCColorPalette.h"
 #import "SCGroup.h"
+@interface SCLightBox()
+{
+    SCFriend *_selectedfriend;
+}
+@end
 @implementation SCLightBox
 @synthesize selectedfriend;
 @synthesize exitButton;
@@ -52,16 +57,16 @@
         
         /*change the below label to something else to allow for editing the text */
         self.name = [[UILabel alloc] initWithFrame:CGRectMake(0,40,260,30)];
-        self.name.text = selectedfriend.nickname;
+        self.name.text = _selectedfriend.nickname;
         self.name.textAlignment = UITextAlignmentCenter;
         
         self.score = [[UILabel alloc] initWithFrame:CGRectMake(5,130,250,20)];
-        self.score.text = [NSString stringWithFormat:@"Score: %d", (int)selectedfriend.points];
+        self.score.text = [NSString stringWithFormat:@"Score: %d", (int)_selectedfriend.points];
         
         self.bestfriends = [[UILabel alloc] initWithFrame:CGRectMake(5,160,250,20)];
         self.bestfriends.text = @"Best Friends";
         
-        NSArray *friendarray = selectedfriend.bestFriends;
+        NSArray *friendarray = _selectedfriend.bestFriends;
         self.bfriend1 = [[UILabel alloc] initWithFrame:CGRectMake(30,185,100,15)];
         self.bfriend1.text = ((SCFriend *)[friendarray objectAtIndex:0]).nickname;
         
@@ -81,7 +86,7 @@
         self.groups = [[UILabel alloc] initWithFrame:CGRectMake(5,250,250,20)];
         self.groups.text = @"Groups";
         
-        NSMutableArray *grouparray = selectedfriend.groups;
+        NSMutableArray *grouparray = _selectedfriend.groups;
         for (int i = 0; i < [grouparray count]; i++) {
             UIImageView *groupbullet = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 24, 24)];
             UILabel *grouplabel = [[UILabel alloc] initWithFrame:CGRectMake(10,10, 24, 24)];
@@ -114,6 +119,41 @@
         
     }
     return self;
+}
+- (SCFriend *)selectedfriend
+{
+    return _selectedfriend;
+}
+- (void)setSelectedfriend:(SCFriend *)select
+{
+    _selectedfriend = select;
+    NSArray *friendarray = _selectedfriend.bestFriends;
+    
+    /*change the below label to something else to allow for editing the text */
+    self.name.text = _selectedfriend.nickname;
+    
+    self.score.text = [NSString stringWithFormat:@"Score: %d", (int)_selectedfriend.points];
+    
+    self.bfriend1.text = ((SCFriend *)[friendarray objectAtIndex:0]).nickname;
+    
+    self.bfriend2.text = ((SCFriend *)[friendarray objectAtIndex:1]).nickname;
+    
+    self.bfriend3.text = ((SCFriend *)[friendarray objectAtIndex:2]).nickname;
+    
+    NSMutableArray *grouparray = _selectedfriend.groups;
+    for (int i = 0; i < [grouparray count]; i++) {
+        UIImageView *groupbullet = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 24, 24)];
+        UILabel *grouplabel = [[UILabel alloc] initWithFrame:CGRectMake(10,10, 24, 24)];
+        UIButton *groupremove = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 24, 24)];
+        grouplabel.text = ((SCGroup *) [grouparray objectAtIndex:i]).groupname;
+        [groupremove setTitle:@"Remove" forState:UIControlStateNormal];
+        [groupremove setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
+        //add command to set image of groupbullet
+        [self addSubview: grouplabel];
+        [self addSubview: groupremove];
+        [self addSubview: groupbullet];
+    }
+    [self addSubview:groups];
 }
 - (void)removeFromSuperview
 {

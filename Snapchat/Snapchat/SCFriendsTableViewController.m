@@ -105,6 +105,7 @@
 {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     self.lightbox = [[SCLightBox alloc] initWithFrame:CGRectMake(30, 20, width - 60, 350)];
+    self.lightbox.selectedfriend = [self.friends objectAtIndex:indexPath.row];
     [self.view addSubview:self.lightbox];
 }
 

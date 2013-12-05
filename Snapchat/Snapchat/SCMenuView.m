@@ -58,8 +58,8 @@
         SCMessageTableViewController *tbvc = [[SCMessageTableViewController alloc] init];
         UINavigationController *messageNav = [[UINavigationController alloc] initWithRootViewController:tbvc];
         [messageNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
-        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, 320, 10)];
-        separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
+        separatorLineView.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
         [messageNav.navigationBar addSubview:separatorLineView];
 
         [messageNav.navigationBar.topItem setTitle:@"Messages" ];
