@@ -157,17 +157,20 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-       // cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+       cell.selectionStyle = UITableViewCellSelectionStyleNone;
         //UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
-        //myBackView.backgroundColor = [UIColor clearColor];
+        //myBackView.backgroundColor = [UIColor lightGreenColor];
         //cell.selectedBackgroundView = myBackView;
         UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
         separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
         [cell.contentView addSubview:separatorLineView];
+        [cell.imageView setImage:[UIImage imageNamed:@"starBullet"]];
     }
     SCFriend *friend = (SCFriend *)[self.friends objectAtIndex:indexPath.row];
     cell.textLabel.text = friend.nickname;
+    cell.detailTextLabel.text = friend.username;
+    cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     
     return cell;
 }
@@ -176,7 +179,16 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     self.lightbox = [[SCLightBox alloc] initWithFrame:CGRectMake(30, 20, width - 60, 350)];
     self.lightbox.selectedfriend = [self.friends objectAtIndex:indexPath.row];
+    self.lightbox.delegate = self;
     [self.view addSubview:self.lightbox];
+}
+- (void)deleteFriend:(SCFriend *)friend
+{
+    [self.lightbox removeFromSuperview];
+    NSInteger index = [self.friends indexOfObject:friend];
+    NSIndexPath *i = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.friends removeObject:friend];
+    [self.tableView deleteRowsAtIndexPaths: @[i] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 /*

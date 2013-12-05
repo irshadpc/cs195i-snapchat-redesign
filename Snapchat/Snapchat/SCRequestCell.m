@@ -26,13 +26,20 @@
     if (!acceptButton) {
         acceptButton = [[UIButton alloc] initWithFrame:CGRectMake(width -80, 12, 24, 24)];
         [acceptButton setBackgroundColor:[UIColor greenColor]];
+        [acceptButton addTarget:self action:@selector(removeRequest:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:acceptButton];
     }
     if (!rejectButton) {
         rejectButton = [[UIButton alloc] initWithFrame:CGRectMake(width -40, 12, 24, 24)];
         [rejectButton setBackgroundColor:[UIColor redColor]];
+        [rejectButton addTarget:self action:@selector(removeRequest:) forControlEvents:UIControlEventTouchUpInside];
+
         [self addSubview: rejectButton];
     }
+}
+- (void)removeRequest: (UIButton *)sender
+{
+    [self.delegate deleteCellForFriend:self.friend];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

@@ -56,7 +56,8 @@
         self.deleteButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
         [self.deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
         [self.deleteButton setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
-
+        [self.deleteButton addTarget:self action:@selector(deleteFriend:) forControlEvents:UIControlEventTouchUpInside];
+        
         self.blockButton = [[UIButton alloc] initWithFrame:CGRectMake(177, 90, 72, 30)];
         self.blockButton.backgroundColor = [UIColor clearColor];
         self.blockButton.layer.borderColor = [UIColor lightGreenColor].CGColor;
@@ -144,6 +145,10 @@
 - (SCFriend *)selectedfriend
 {
     return _selectedfriend;
+}
+- (void)deleteFriend:(UIButton *)sender
+{
+    [self.delegate deleteFriend:self.selectedfriend];
 }
 - (void)setSelectedfriend:(SCFriend *)select
 {

@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCFriend.h"
+@protocol SCRequestDelegate
+
+- (void)deleteCellForFriend: (SCFriend *)friend;
+@end
 
 @interface SCRequestCell : UITableViewCell
 {
     UIButton *acceptButton;
     UIButton *rejectButton;
 }
+@property SCFriend* friend;
+@property UITableViewController<SCRequestDelegate> *delegate;
 @end

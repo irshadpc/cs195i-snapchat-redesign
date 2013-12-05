@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SCGroup.h"
 #import "SCFriend.h"
+
 @interface SCSelectFriendsViewController : UITableViewController
 @property NSMutableArray *friends;
 @property NSMutableArray *groups;
+@property UIViewController *delegate;
 @end

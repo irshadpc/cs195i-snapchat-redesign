@@ -34,7 +34,8 @@
 }
 - (void) send: (UIButton *)sender
 {
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[SCSelectFriendsViewController alloc] init]];
+    SCSelectFriendsViewController *s = [[SCSelectFriendsViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:s];
     [nav.navigationBar.topItem setTitle:@"Send to..." ];
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
     separatorLineView.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
@@ -42,7 +43,7 @@
     [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
     [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
-
+    s.delegate = self.delegate;
     [self.delegate presentVC: nav];
 }
 - (void) returnToCamera:(UIButton *) sender

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SCRequestsTableViewController : UITableViewController
+#import "SCRequestCell.h"
+@interface SCRequestsTableViewController : UITableViewController<SCRequestDelegate>
 @property NSMutableArray *requests;
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SCFriend.h"
+@protocol SCLightBoxDelegate
+- (void)deleteFriend: (SCFriend *)friend;
+@end
 @interface SCLightBox : UIView
 @property SCFriend *selectedfriend;
 @property UIButton *exitButton;
@@ -24,4 +27,5 @@
 @property UIImageView *bullet1;
 @property UIImageView *bullet2;
 @property UIImageView *bullet3;
+@property UITableViewController<SCLightBoxDelegate> *delegate;
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SCLightBox.h"
-@interface SCFriendsTableViewController : UITableViewController
+@interface SCFriendsTableViewController : UITableViewController<SCLightBoxDelegate>
 @property NSMutableArray* friends;
 @property SCLightBox *lightbox;
 @property UIButton *lightBoxButton;

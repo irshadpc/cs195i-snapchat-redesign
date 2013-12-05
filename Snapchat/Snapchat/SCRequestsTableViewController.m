@@ -78,14 +78,23 @@
         UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
         separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
         [cell.contentView addSubview:separatorLineView];
+        ((SCRequestCell *)cell).delegate = self;
 
     }
     SCFriend *friend = (SCFriend *)[self.requests objectAtIndex:indexPath.row];
     cell.textLabel.text = friend.nickname;
+    ((SCRequestCell *)cell).friend = friend;
+
     
     return cell;
 }
-
+- (void)deleteCellForFriend: (SCFriend *)friend
+{
+    NSInteger index = [self.requests indexOfObject:friend];
+    NSIndexPath *i = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.requests removeObject:friend];
+    [self.tableView deleteRowsAtIndexPaths: @[i] withRowAnimation:UITableViewRowAnimationTop];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

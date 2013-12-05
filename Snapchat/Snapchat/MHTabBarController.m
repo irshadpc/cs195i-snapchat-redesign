@@ -13,7 +13,7 @@ static const NSInteger TagOffset = 1000;
 {
     if (self = [super init]) {
         UITabBarItem *tbi = [self tabBarItem];
-        [tbi setTitle: @"Friends"];
+        [tbi setTitle: @"Contacts"];
         [tbi setImage: [UIImage imageNamed:@"pusheen"]];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor lightGreenColor] }
                                                      forState:UIControlStateNormal];
@@ -341,7 +341,7 @@ static const NSInteger TagOffset = 1000;
     [button setBackgroundImage:image forState:UIControlStateNormal];
     [button setBackgroundImage:image forState:UIControlStateHighlighted];
     
-    [button setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor darkGreenColor] forState:UIControlStateNormal];
     //[button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
