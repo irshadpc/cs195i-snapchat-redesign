@@ -14,6 +14,7 @@
 #import "SCFriendsTableViewController.h"
 #import "SCGroupTableViewController.h"
 #import "SCRequestsTableViewController.h"
+#import "UIColor+SCColorPalette.h"
 @implementation SCMenuView
 @synthesize messages;
 @synthesize camera;
@@ -24,9 +25,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:[UIColor greenColor]];
-        CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        CGFloat height = [UIScreen mainScreen].bounds.size.height;
+        [self setBackgroundColor:[UIColor darkGreenColor]];
         self.messages = [[UIButton alloc] initWithFrame:CGRectMake(60, 184, 80, 80)];
         self.messages.backgroundColor = [UIColor purpleColor];
         [self.messages addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];

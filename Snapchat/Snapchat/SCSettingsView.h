@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface SCSettingsView : UIView
-
+@property UILabel *username;
+@property UILabel *phonenumber;
+@property UILabel *email;
+@property UILabel *sounds;
+@property UILabel *privacy;
+@property UIButton *save;
+@property UITextField *username_field;
+@property UITextField *phonenumber_field;
+@property UITextField *email_field;
+@property UITextField *sounds_field;
+@property UITextField *privacy_field;
 @end
