@@ -9,6 +9,7 @@
 #import "SCGroupTableViewController.h"
 #import "SCGroup.h"
 #import "SCFriend.h"
+#import "UIColor+SCColorPalette.h"
 @interface SCGroupTableViewController ()
 
 @end
@@ -72,6 +73,7 @@
         [self.groups addObject:group1];
         [self.groups addObject:group2];
         [self.groups addObject:group3];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }
@@ -113,23 +115,14 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
+        separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
+        [cell.contentView addSubview:separatorLineView];
     }
     SCGroup *group = (SCGroup *)[self.groups objectAtIndex:indexPath.row];
     cell.textLabel.text = group.groupname;
     
     return cell;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    return [UIView new];
-    
-    // If you are not using ARC:
-    // return [[UIView new] autorelease];
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    // This will create a "invisible" footer
-    return 0.5f;
 }
 /*
 // Override to support conditional editing of the table view.

@@ -14,6 +14,7 @@
 #import "SCFriendsTableViewController.h"
 #import "SCGroupTableViewController.h"
 #import "SCRequestsTableViewController.h"
+#import "UIColor+SCColorPalette.h"
 @implementation SCMenuView
 @synthesize messages;
 @synthesize camera;
@@ -24,25 +25,29 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:[UIColor greenColor]];
+        [self setBackgroundColor:[UIColor darkGreenColor]];
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
         CGFloat height = [UIScreen mainScreen].bounds.size.height;
         self.messages = [[UIButton alloc] initWithFrame:CGRectMake(60, 184, 80, 80)];
-        self.messages.backgroundColor = [UIColor purpleColor];
+        //self.messages.backgroundColor = [UIColor purpleColor];
+        [self.messages setBackgroundImage:[UIImage imageNamed:@"messages"] forState:UIControlStateNormal];
         [self.messages addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
         
         self.camera = [[UIButton alloc] initWithFrame:CGRectMake(60, 304, 80, 80)];
-        self.camera.backgroundColor = [UIColor blueColor];
+        [self.camera setBackgroundImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
+        //elf.camera.backgroundColor = [UIColor blueColor];
         [self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
 
         self.friends = [[UIButton alloc] initWithFrame:CGRectMake(180, 184, 80, 80)];
-        self.friends.backgroundColor = [UIColor orangeColor];
+        //self.friends.backgroundColor = [UIColor orangeColor];
+        [self.friends setBackgroundImage:[UIImage imageNamed:@"friends"] forState:UIControlStateNormal];
         [self.friends addTarget:self action:@selector(friendsPressed:) forControlEvents:UIControlEventTouchUpInside];
 
         self.settings = [[UIButton alloc] initWithFrame:CGRectMake(180, 304, 80, 80)];
-        self.settings.backgroundColor = [UIColor whiteColor];
+        //self.settings.backgroundColor = [UIColor whiteColor];
+        [self.settings setBackgroundImage:[UIImage imageNamed:@"settings"] forState:UIControlStateNormal];
         [self.settings addTarget:self action:@selector(settingsPressed:) forControlEvents:UIControlEventTouchUpInside];
-
+        
         [self addSubview:messages];
         [self addSubview:camera];
         [self addSubview:friends];
@@ -88,6 +93,8 @@
        // [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];
         [[UITabBar appearance] setBackgroundImage:tabBarBackground];
         //[[UITabBar appearance] setTintColor:[UIColor redColor]];
+        
+       
         
 
     }

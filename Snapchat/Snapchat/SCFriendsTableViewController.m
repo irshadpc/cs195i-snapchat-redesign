@@ -9,6 +9,8 @@
 #import "SCFriendsTableViewController.h"
 #import "SCFriend.h"
 #import "SCRequestCell.h"
+#import "SCLightBox.h"
+#import "UIColor+SCColorPalette.h"
 @interface SCFriendsTableViewController ()
 
 @end
@@ -41,7 +43,7 @@
         [self.friends addObject:friend2];
         [self.friends addObject:friend3];
         [self.friends addObject: friend4];
-        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }
@@ -49,14 +51,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.lightbox removeFromSuperview];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -83,13 +88,24 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+       // cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+        //myBackView.backgroundColor = [UIColor clearColor];
+        //cell.selectedBackgroundView = myBackView;
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
+        separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
+        [cell.contentView addSubview:separatorLineView];
     }
     SCFriend *friend = (SCFriend *)[self.friends objectAtIndex:indexPath.row];
     cell.textLabel.text = friend.nickname;
     
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    self.lightbox = [[SCLightBox alloc] initWithFrame:CGRectMake(30, 20, width - 60, 350)];
+    [self.view addSubview:self.lightbox];
 }
 
 /*

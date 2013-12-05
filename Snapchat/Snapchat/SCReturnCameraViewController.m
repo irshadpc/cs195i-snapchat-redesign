@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self presentModalViewController:[[SCCameraViewController alloc] init] animated:YES];
+    [self presentModalViewController:[[SCCameraViewController alloc] init] animated:NO];
 	// Do any additional setup after loading the view.
 }
 

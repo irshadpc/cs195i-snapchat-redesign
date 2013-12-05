@@ -8,6 +8,7 @@
 #import "SCRequestCell.h"
 #import "SCRequestsTableViewController.h"
 #import "SCFriend.h"
+#import "UIColor+SCColorPalette.h"
 @interface SCRequestsTableViewController ()
 
 @end
@@ -30,7 +31,8 @@
         
         [self.requests addObject:friend1];
         [self.requests addObject:friend2];
-        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     }
     return self;
 }
@@ -73,6 +75,9 @@
     if (!cell) {
         cell = [[SCRequestCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
+        separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
+        [cell.contentView addSubview:separatorLineView];
 
     }
     SCFriend *friend = (SCFriend *)[self.requests objectAtIndex:indexPath.row];

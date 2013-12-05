@@ -48,10 +48,8 @@
         [self.messages addObject: message1];
         [self.messages addObject: message2];
         [self.messages addObject:message3];
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-        self.tableView.separatorColor = [UIColor separatorColor];
     }
     return self;
 }
@@ -96,6 +94,9 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle  reuseIdentifier:@"Cell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
+        separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
+        [cell.contentView addSubview:separatorLineView];
 
     }
     
