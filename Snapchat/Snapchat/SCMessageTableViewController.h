@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "SCMessage.h"
-@interface SCMessageTableViewController : UITableViewController
+#import "SCMessageCell.h"
+#import "SCImageView.h"
+@interface SCMessageTableViewController : UITableViewController<SCMessageCellDelegate,SCImageViewDelegate>
 @property NSMutableArray* messages;
 @end

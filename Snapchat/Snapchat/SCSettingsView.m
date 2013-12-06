@@ -91,7 +91,7 @@
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         self.privacy_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 234, 150, 30)];
-        self.privacy_field.text = @"My Friends"; //might need escape character for @
+        self.privacy_field.text = @"Friends"; //might need escape character for @
         self.privacy_field.textColor = [UIColor lightGreenColor];
         self.privacy_field.textAlignment = UITextAlignmentRight;
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];

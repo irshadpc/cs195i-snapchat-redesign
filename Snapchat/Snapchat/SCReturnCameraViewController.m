@@ -17,8 +17,8 @@
 
 - (id)init{
     UITabBarItem *tbi = [self tabBarItem];
-    [tbi setTitle: @"camera"];
-    [tbi setImage: [UIImage imageNamed:@"pusheen"]];
+    [tbi setTitle: @"Camera"];
+    [tbi setImage: [UIImage imageNamed:@"cameraTab"]];
     if (self = [super init]) {
         //[self.view setBackgroundColor:[UIColor whiteColor]];
     }

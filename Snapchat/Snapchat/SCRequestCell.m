@@ -25,13 +25,13 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     if (!acceptButton) {
         acceptButton = [[UIButton alloc] initWithFrame:CGRectMake(width -80, 12, 24, 24)];
-        [acceptButton setBackgroundColor:[UIColor greenColor]];
+        [acceptButton setBackgroundImage:[UIImage imageNamed:@"darkGreenCheckSmall"] forState:UIControlStateNormal];
         [acceptButton addTarget:self action:@selector(removeRequest:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:acceptButton];
     }
     if (!rejectButton) {
         rejectButton = [[UIButton alloc] initWithFrame:CGRectMake(width -40, 12, 24, 24)];
-        [rejectButton setBackgroundColor:[UIColor redColor]];
+        [rejectButton setBackgroundImage:[UIImage imageNamed:@"redXSmall"] forState:UIControlStateNormal];
         [rejectButton addTarget:self action:@selector(removeRequest:) forControlEvents:UIControlEventTouchUpInside];
 
         [self addSubview: rejectButton];
