@@ -24,4 +24,5 @@
 @property UIButton *timeButton;
 @property UIImageView *colorPallet;
 @property UIColor *currColor;
+@property NSMutableArray *timerImageArray;
 @end
