@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface SCDrawingView : UIView
+@interface SCDrawingView : UIView <UITextFieldDelegate>
 @property BOOL drawingOn;
 @property UIColor *drawColor;
 @end

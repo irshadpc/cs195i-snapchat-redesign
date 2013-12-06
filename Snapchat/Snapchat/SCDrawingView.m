@@ -11,6 +11,7 @@
 {
     UIBezierPath *path;
     UIImage *incrementalImage; // (1)
+    UITextField *captionField;
 }
 @synthesize drawingOn;
 @synthesize drawColor;
@@ -24,6 +25,10 @@
         [path setLineWidth:5.0];
         drawingOn = NO;
         drawColor = [UIColor redColor];
+        captionField = [[UITextField alloc] initWithFrame:CGRectMake(0, 264, 320, 30)];
+        captionField.backgroundColor = [UIColor darkGrayColor];
+        captionField.textColor = [UIColor whiteColor];
+        captionField.delegate = self;
     }
     return self;
 }
@@ -39,6 +44,10 @@
         UITouch *touch = [touches anyObject];
         CGPoint p = [touch locationInView:self];
         [path moveToPoint:p];
+    }
+    else {
+        [self addSubview:captionField];
+        [captionField becomeFirstResponder];
     }
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -79,5 +88,10 @@
     [path stroke];
     incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+}
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
 }
 @end
