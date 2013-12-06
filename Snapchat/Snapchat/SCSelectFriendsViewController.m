@@ -104,16 +104,6 @@
         [friend7.bestFriends addObject:friend2];
         [friend7.bestFriends addObject:friend3];
         
-        [group1.friends addObject:friend1];
-        [group1.friends addObject:friend2];
-        [group1.friends addObject:friend3];
-        
-        [group2.friends addObject:friend4];
-        [group2.friends addObject:friend7];
-        
-        [group3.friends addObject:friend5];
-        [group3.friends addObject:friend6];
-        
         [self.groups addObject:group1];
         [self.groups addObject:group2];
         [self.groups addObject:group3];

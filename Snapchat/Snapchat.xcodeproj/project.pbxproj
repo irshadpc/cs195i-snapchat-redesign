@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2326076518503A390041BD2D /* SCGroupLightBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2326076418503A390041BD2D /* SCGroupLightBox.m */; };
+		23345AC11851402700EFAAB9 /* SCDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23345AC01851402700EFAAB9 /* SCDrawingView.m */; };
 		233AE280184FC7AA003B6283 /* SCGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 233AE27F184FC7AA003B6283 /* SCGroup.m */; };
 		233AE283184FC7D6003B6283 /* SCGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 233AE282184FC7D6003B6283 /* SCGroupTableViewController.m */; };
 		F8493A27184D2C1600BBF16B /* SCCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8493A26184D2C1600BBF16B /* SCCameraView.m */; };
@@ -57,6 +58,8 @@
 /* Begin PBXFileReference section */
 		2326076318503A390041BD2D /* SCGroupLightBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGroupLightBox.h; sourceTree = "<group>"; };
 		2326076418503A390041BD2D /* SCGroupLightBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGroupLightBox.m; sourceTree = "<group>"; };
+		23345ABF1851402700EFAAB9 /* SCDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDrawingView.h; sourceTree = "<group>"; };
+		23345AC01851402700EFAAB9 /* SCDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDrawingView.m; sourceTree = "<group>"; };
 		233AE27E184FC7AA003B6283 /* SCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGroup.h; sourceTree = "<group>"; };
 		233AE27F184FC7AA003B6283 /* SCGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGroup.m; sourceTree = "<group>"; };
 		233AE281184FC7D6003B6283 /* SCGroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGroupTableViewController.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				F8EC62291831780600EDBE7E /* SCAppDelegate.m */,
 				F8493A25184D2C1600BBF16B /* SCCameraView.h */,
 				F8493A26184D2C1600BBF16B /* SCCameraView.m */,
+				23345ABF1851402700EFAAB9 /* SCDrawingView.h */,
+				23345AC01851402700EFAAB9 /* SCDrawingView.m */,
 				F8493A3E184DE1F100BBF16B /* SCCameraViewController.h */,
 				F8493A3F184DE1F100BBF16B /* SCCameraViewController.m */,
 				F8493A28184D2C5300BBF16B /* SCPhotoEditingView.h */,
@@ -379,6 +384,7 @@
 				F8493A7C18502EAC00BBF16B /* SCSelectFriendsCell.m in Sources */,
 				F8493A30184D2CE200BBF16B /* SCSettingsView.m in Sources */,
 				F8493A40184DE1F100BBF16B /* SCCameraViewController.m in Sources */,
+				23345AC11851402700EFAAB9 /* SCDrawingView.m in Sources */,
 				F8493A46184DF03E00BBF16B /* SCFriend.m in Sources */,
 				F8493A49184E554900BBF16B /* SCMenuViewController.m in Sources */,
 				F8493A73184FF15800BBF16B /* SCLightBox.m in Sources */,
