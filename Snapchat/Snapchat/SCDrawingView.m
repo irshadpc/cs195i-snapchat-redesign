@@ -29,6 +29,8 @@
         captionField.backgroundColor = [UIColor darkGrayColor];
         captionField.textColor = [UIColor whiteColor];
         captionField.delegate = self;
+        [captionField addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)]];
+        captionField.textAlignment = UITextAlignmentCenter;
     }
     return self;
 }
@@ -93,5 +95,12 @@
     
     [textField resignFirstResponder];
     return YES;
+}
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    
+    CGPoint translation = [recognizer translationInView:self];
+    recognizer.view.center = CGPointMake(recognizer.view.center.x,
+                                         recognizer.view.center.y + translation.y);
+    [recognizer setTranslation:CGPointMake(0, 0) inView:self];
 }
 @end
