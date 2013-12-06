@@ -76,12 +76,16 @@
         self.phonenumber_field.text = @"123-456-7890";
         self.phonenumber_field.textColor = [UIColor lightGreenColor];
         self.phonenumber_field.textAlignment = UITextAlignmentRight;
+        self.phonenumber_field.delegate = self;
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
+       
 
         self.email_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 152, 150, 30)];
         self.email_field.text = @"j@brown.edu"; //might need escape character for @
         self.email_field.textColor = [UIColor lightGreenColor];
         self.email_field.textAlignment = UITextAlignmentRight;
+        self.email_field.delegate = self;
+
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         self.sounds_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 193, 150, 30)];
@@ -125,7 +129,11 @@
     }
     return self;
 }
-
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

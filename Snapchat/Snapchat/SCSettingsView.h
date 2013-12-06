@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCSettingsView : UIView
+@interface SCSettingsView : UIView <UITextFieldDelegate>
 @property UILabel *username;
 @property UILabel *phonenumber;
 @property UILabel *email;
