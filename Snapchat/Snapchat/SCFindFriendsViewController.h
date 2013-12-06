@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SCSearchResultsController.h"
+#import "SCSearchBar.h"
 @interface SCFindFriendsViewController : UIViewController<UITextFieldDelegate>
 @property UIViewController *delegate;
 @property UITextField *textfield;
-
+@property SCSearchResultsController *tvc;
+@property SCSearchBar *bar;
 @end
