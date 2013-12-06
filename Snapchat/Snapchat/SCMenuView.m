@@ -76,8 +76,7 @@
         [settingsNav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
         //settingsNav.navigationBar.translucent = NO;
         UIView* separatorLineView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
-        separatorLineView1.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
-        [settingsNav.navigationBar addSubview:separatorLineView2];
+        separatorLineView2.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
         [settingsNav.navigationBar addSubview:separatorLineView2];
 
         SCRequestsTableViewController *listViewController1 = [[SCRequestsTableViewController alloc] init];
@@ -106,8 +105,7 @@
         [self.tbc setViewControllers: @[messageNav, cam, friendsNav, settingsNav]];
         UIImage *tabBarBackground = [UIImage imageNamed:@"tabBackground"];
         UIView* separatorLineView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
-        separatorLineView1.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
-        [friendsNav.navigationBar addSubview:separatorLineView3];
+        separatorLineView3.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
         [friendsNav.navigationBar addSubview:separatorLineView3];
 
        // [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];

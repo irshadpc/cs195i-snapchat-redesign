@@ -212,6 +212,31 @@
     cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     return cell;
 }
+- (void)displayFeedbackWithFriend:(NSString *)name andAction: (NSString *)action
+{
+    UILabel *feedback = [[UILabel alloc]initWithFrame:CGRectMake(20, 370, 280, 20)];
+    feedback.textColor = [UIColor whiteColor];
+    feedback.textAlignment = UITextAlignmentCenter;
+    [feedback setText:[NSString stringWithFormat:@"%@ was %@", name, action]];
+    [feedback setBackgroundColor:[UIColor colorWithRed:.1 green:.1 blue:.1 alpha:.7f]];
+    [self.view addSubview:feedback];
+    feedback.alpha = 1.0f;
+        [UIView animateWithDuration:5.0
+                            delay:8.0 options:nil
+                            animations:^{
+                             feedback.alpha = 1;
+                         }
+                         completion:^(BOOL finished){
+                             [UIView animateWithDuration:1.0
+                                              animations:^{
+                                                  feedback.alpha = 0;
+                                              }
+                                              completion:^(BOOL finished){
+                                                  [feedback removeFromSuperview];
+                                              }];
+                         }];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
@@ -231,6 +256,7 @@
     NSIndexPath *i = [NSIndexPath indexPathForRow:index inSection:0];
     [self.friends removeObject:friend];
     [self.tableView deleteRowsAtIndexPaths: @[i] withRowAnimation:UITableViewRowAnimationTop];
+    [self displayFeedbackWithFriend:friend.nickname andAction:@"deleted"];
 }
 - (void)unblockFriend:(SCFriend *)friend
 {
@@ -245,6 +271,7 @@
     }
     [self.friends addObject:friend];
     [self.tableView reloadData];
+    [self displayFeedbackWithFriend:friend.nickname andAction:@"unblocked"];
 }
 - (void)blockFriend:(SCFriend *)friend
 {
@@ -258,6 +285,7 @@
 
     [self.blocked addObject:friend];
     [self.tableView reloadData];
+    [self displayFeedbackWithFriend:friend.nickname andAction:@"blocked"];
 }
 /*
 // Override to support conditional editing of the table view.

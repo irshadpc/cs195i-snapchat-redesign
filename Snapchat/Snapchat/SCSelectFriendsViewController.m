@@ -194,6 +194,7 @@
         if (indexPath.row == 0) {
             cell.textLabel.text = @"All members of group";
             cell.detailTextLabel.text = nil;
+            [cell.imageView setImage:[UIImage imageNamed:@"groupIcon"]];
         } else {
             SCFriend *currFriend = [currentGroup.friends objectAtIndex:indexPath.row - 1];
             cell.textLabel.text = currFriend.nickname;

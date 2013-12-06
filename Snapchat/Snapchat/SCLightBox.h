@@ -31,4 +31,5 @@
 @property UIImageView *bullet2;
 @property UIImageView *bullet3;
 @property UITableViewController<SCLightBoxDelegate> *delegate;
+@property UIView *groupView;
 @end
