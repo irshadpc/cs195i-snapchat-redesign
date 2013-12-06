@@ -36,6 +36,7 @@
         [exitButton addTarget:self action:@selector(returnToCamera:) forControlEvents:UIControlEventTouchUpInside];
         self.saveButton = [[UIButton alloc]initWithFrame:CGRectMake(width - 85, 30, 30, 30)];
         [self.saveButton setBackgroundImage:[UIImage imageNamed:@"download"] forState:UIControlStateNormal];
+        [saveButton addTarget:self action:@selector(displayFeedback) forControlEvents:UIControlEventTouchUpInside];
         self.timeButton = [[UIButton alloc]initWithFrame:CGRectMake(width - 40, 30, 30, 30)];
         [self.timeButton setBackgroundImage:[UIImage imageNamed:@"timer3"] forState:UIControlStateNormal];
         [self.timeButton addTarget:self action:@selector(timerPicker:) forControlEvents:UIControlEventTouchUpInside];
@@ -83,9 +84,35 @@
     }
     return self;
 }
+- (void)displayFeedback
+{
+    UILabel *feedback = [[UILabel alloc]initWithFrame:CGRectMake(20, 370, 280, 30)];
+    feedback.textColor = [UIColor whiteColor];
+    feedback.textAlignment = UITextAlignmentCenter;
+    [feedback setText:@"Photo saved to camera roll!"];
+    [feedback setBackgroundColor:[UIColor colorWithRed:.1 green:.1 blue:.1 alpha:.7f]];
+    [self addSubview:feedback];
+    feedback.alpha = 1.0f;
+    [UIView animateWithDuration:20.0
+                          delay:20.0 options:nil
+                     animations:^{
+                         feedback.alpha = 1;
+                     }
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:1.0
+                                          animations:^{
+                                              feedback.alpha = 0;
+                                          }
+                                          completion:^(BOOL finished){
+                                              [feedback removeFromSuperview];
+                                          }];
+                     }];
+}
+
 - (void) send: (UIButton *)sender
 {
     SCFriendSelectController *s = [[SCFriendSelectController alloc] init];
+    s.goButton = @"Send";
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:s];
     [nav.navigationBar.topItem setTitle:@"Send to..." ];
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];

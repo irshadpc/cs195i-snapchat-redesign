@@ -9,6 +9,7 @@
 #import "SCGroupLightBox.h"
 #import "UIColor+SCColorPalette.h"
 #import "SCFriend.h"
+#import "SCFriendSelectController.h"
 @interface SCGroupLightBox()
 {
     SCGroup * _selectedgroup;
@@ -50,6 +51,7 @@
         self.addButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
         [self.addButton setTitle:@"Add Friend" forState:UIControlStateNormal];
         [self.addButton setTitleColor:[UIColor darkGreenColor] forState:UIControlStateNormal];
+        [self.addButton addTarget:self action:@selector(addFriends) forControlEvents:UIControlEventTouchUpInside];
         
         self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(94, 50, 72, 30)];
         self.deleteButton.backgroundColor = [UIColor clearColor];
@@ -107,11 +109,30 @@
         groupremove.layer.borderColor = [UIColor darkGreenColor].CGColor;
         groupremove.layer.borderWidth = 1;
         groupremove.tag = i;
+
         [groupremove addTarget:self action:@selector(removeFriendWithButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview: grouplabel];
         [self addSubview: groupremove];
         [self addSubview: groupbullet];
     }
+}
+
+- (void)addFriends
+{
+    SCFriendSelectController *vc = [[SCFriendSelectController alloc]initWithOutGroup:self.selectedgroup];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [nav.navigationBar.topItem setTitle:@"Add friends to Group" ];
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
+    separatorLineView.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
+    [nav.navigationBar addSubview:separatorLineView];
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [nav.navigationBar setTranslucent:NO];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
+    vc.delegate = self.delegate;
+
+    vc.goButton = @"Save";
+    [self.delegate presentVC: nav];
+    [self removeFromSuperview];
 }
 - (void)removeFriendWithButton:(UIButton *)sender {
     NSInteger index = sender.tag;

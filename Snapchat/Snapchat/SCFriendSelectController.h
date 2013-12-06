@@ -12,5 +12,7 @@
 @property SCSelectFriendsViewController *tvc;
 @property UIView *bar;
 @property UIViewController *delegate;
-
+@property NSString *goButton;
+- (void)removeGroup:(SCGroup *)group;
+- (id)initWithOutGroup: (SCGroup *)group;
 @end

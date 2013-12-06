@@ -37,6 +37,7 @@
 		F8493A8B18507B8700BBF16B /* SCFindFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8493A8A18507B8700BBF16B /* SCFindFriendsViewController.m */; };
 		F8493A8E185082F200BBF16B /* SCSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F8493A8D185082F200BBF16B /* SCSearchBar.m */; };
 		F8493A911851984300BBF16B /* SCSearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8493A901851984300BBF16B /* SCSearchResultsController.m */; };
+		F86CAD101851DAE90020AA43 /* SCNewGroupBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F86CAD0F1851DAE90020AA43 /* SCNewGroupBox.m */; };
 		F8EC621A1831780600EDBE7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EC62191831780600EDBE7E /* Foundation.framework */; };
 		F8EC621C1831780600EDBE7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EC621B1831780600EDBE7E /* CoreGraphics.framework */; };
 		F8EC621E1831780600EDBE7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EC621D1831780600EDBE7E /* UIKit.framework */; };
@@ -122,6 +123,8 @@
 		F8493A8D185082F200BBF16B /* SCSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSearchBar.m; sourceTree = "<group>"; };
 		F8493A8F1851984300BBF16B /* SCSearchResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSearchResultsController.h; sourceTree = "<group>"; };
 		F8493A901851984300BBF16B /* SCSearchResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSearchResultsController.m; sourceTree = "<group>"; };
+		F86CAD0E1851DAE90020AA43 /* SCNewGroupBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNewGroupBox.h; sourceTree = "<group>"; };
+		F86CAD0F1851DAE90020AA43 /* SCNewGroupBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNewGroupBox.m; sourceTree = "<group>"; };
 		F8EC62161831780600EDBE7E /* Snapchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snapchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EC62191831780600EDBE7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F8EC621B1831780600EDBE7E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -237,6 +240,8 @@
 				F8493A69184FC8F300BBF16B /* SCRequestCell.m */,
 				F8493A71184FF15800BBF16B /* SCLightBox.h */,
 				F8493A72184FF15800BBF16B /* SCLightBox.m */,
+				F86CAD0E1851DAE90020AA43 /* SCNewGroupBox.h */,
+				F86CAD0F1851DAE90020AA43 /* SCNewGroupBox.m */,
 				2326076318503A390041BD2D /* SCGroupLightBox.h */,
 				2326076418503A390041BD2D /* SCGroupLightBox.m */,
 				F8493A41184DEF7E00BBF16B /* SCMessage.h */,
@@ -406,6 +411,7 @@
 				F8493A33184D2D1500BBF16B /* SCMessageTableViewController.m in Sources */,
 				F8493A67184FBD5200BBF16B /* SCFriendsTableViewController.m in Sources */,
 				F8493A52184EC9F200BBF16B /* MHTabBarController.m in Sources */,
+				F86CAD101851DAE90020AA43 /* SCNewGroupBox.m in Sources */,
 				233AE283184FC7D6003B6283 /* SCGroupTableViewController.m in Sources */,
 				F8493A2D184D2C7600BBF16B /* SCMenuView.m in Sources */,
 				F8493A58184EE10E00BBF16B /* SCReturnCameraViewController.m in Sources */,

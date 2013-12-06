@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SCGroupLightBox.h"
 #import "SCSelectFriendsViewController.h"
+#import "SCNewGroupBox.h"
 @interface SCGroupTableViewController : UITableViewController<SCGroupLightBoxDelegate>
 @property NSMutableArray *groups;
 @property SCGroupLightBox *lightBox;
+@property SCNewGroupBox *b;
 @end

@@ -14,4 +14,6 @@
 @property NSMutableArray *friends;
 @property NSMutableArray *groups;
 @property UIViewController *delegate;
+- (void)removeGroup:(SCGroup *)group;
+- (id)initWithoutGroup:(SCGroup *)group;
 @end

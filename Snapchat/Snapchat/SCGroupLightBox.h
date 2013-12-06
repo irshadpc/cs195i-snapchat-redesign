@@ -10,6 +10,7 @@
 #import "SCGroup.h"
 @protocol SCGroupLightBoxDelegate
 - (void)deleteFriend: (SCGroup *)friend;
+- (void)presentVC:(UIViewController*)vc;
 @end
 @interface SCGroupLightBox : UIView
 @property SCGroup *selectedgroup;
