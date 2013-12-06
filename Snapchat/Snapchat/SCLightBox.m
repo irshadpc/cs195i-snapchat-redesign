@@ -43,34 +43,34 @@
         
         self.editButton = [[UIButton alloc] initWithFrame:CGRectMake(11, 50, 72, 30)];
         self.editButton.backgroundColor = [UIColor clearColor];
-        self.editButton.layer.borderColor = [UIColor lightGreenColor].CGColor;
+        self.editButton.layer.borderColor = [UIColor darkGreenColor].CGColor;
         self.editButton.layer.borderWidth = 1;
         self.editButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
         
         [self.editButton setTitle:@"Edit Name" forState:UIControlStateNormal];
-        [self.editButton setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
+        [self.editButton setTitleColor:[UIColor darkGreenColor] forState:UIControlStateNormal];
         
         self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(94, 50, 72, 30)];
         self.deleteButton.backgroundColor = [UIColor clearColor];
-        self.deleteButton.layer.borderColor = [UIColor lightGreenColor].CGColor;
+        self.deleteButton.layer.borderColor = [UIColor darkGreenColor].CGColor;
         self.deleteButton.layer.borderWidth = 1;
         self.deleteButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
         [self.deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
-        [self.deleteButton setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
+        [self.deleteButton setTitleColor:[UIColor darkGreenColor] forState:UIControlStateNormal];
         [self.deleteButton addTarget:self action:@selector(deleteFriend:) forControlEvents:UIControlEventTouchUpInside];
 
         self.blockButton = [[UIButton alloc] initWithFrame:CGRectMake(177, 50, 72, 30)];
         self.blockButton.backgroundColor = [UIColor clearColor];
-        self.blockButton.layer.borderColor = [UIColor lightGreenColor].CGColor;
+        self.blockButton.layer.borderColor = [UIColor darkGreenColor].CGColor;
         self.blockButton.layer.borderWidth = 1;
         self.blockButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
-        [self.blockButton setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
+        [self.blockButton setTitleColor:[UIColor darkGreenColor] forState:UIControlStateNormal];
         [self.blockButton addTarget:self action:@selector(blockFriend:) forControlEvents:UIControlEventTouchUpInside];
 
         /*change the below label to something else to allow for editing the text */
         self.name = [[UILabel alloc] initWithFrame:CGRectMake(30,10,200,30)];
         self.name.text = _selectedfriend.nickname;
-        self.name.textColor = [UIColor lightGreenColor];
+        self.name.textColor = [UIColor darkGreenColor];
         self.name.textAlignment = UITextAlignmentCenter;
         
         self.score = [[UILabel alloc] initWithFrame:CGRectMake(11,100,250,20)];
@@ -113,10 +113,10 @@
             grouplabel.text = ((SCGroup *) [grouparray objectAtIndex:i]).groupname;
             grouplabel.font = [UIFont systemFontOfSize:10.0];
             [groupremove setTitle:@"Remove" forState:UIControlStateNormal];
-            [groupremove setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
+            [groupremove setTitleColor:[UIColor darkGreenColor] forState:UIControlStateNormal];
             [groupbullet setImage:[UIImage imageNamed:@"circleBullet"]];
             groupremove.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
-            groupremove.layer.borderColor = [UIColor lightGreenColor].CGColor;
+            groupremove.layer.borderColor = [UIColor darkGreenColor].CGColor;
             groupremove.layer.borderWidth = 1;
             groupremove.tag = i;
             [groupremove addTarget:self action:@selector(removeGroupWithButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -139,7 +139,7 @@
         [self addSubview:bullet3];
         [self addSubview:groups];
         [self addSubview: self.exitButton];
-        self.layer.borderColor = [UIColor lightGreenColor].CGColor;
+        self.layer.borderColor = [UIColor darkGreenColor].CGColor;
         self.layer.borderWidth = 2.0f;
         
     }
@@ -191,10 +191,10 @@
         grouplabel.text = ((SCGroup *) [grouparray objectAtIndex:i]).groupname;
         grouplabel.font = [UIFont systemFontOfSize:10.0];
         [groupremove setTitle:@"Remove" forState:UIControlStateNormal];
-        [groupremove setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
+        [groupremove setTitleColor:[UIColor darkGreenColor] forState:UIControlStateNormal];
         [groupbullet setImage:[UIImage imageNamed:@"circleBullet"]];
         groupremove.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
-        groupremove.layer.borderColor = [UIColor lightGreenColor].CGColor;
+        groupremove.layer.borderColor = [UIColor darkGreenColor].CGColor;
         groupremove.layer.borderWidth = 1;
         groupremove.tag = i;
         [groupremove addTarget:self action:@selector(removeGroupWithButton:) forControlEvents:UIControlEventTouchUpInside];

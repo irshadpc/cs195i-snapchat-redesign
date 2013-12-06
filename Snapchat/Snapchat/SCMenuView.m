@@ -47,7 +47,7 @@
         [self.settings setBackgroundImage:[UIImage imageNamed:@"settings"] forState:UIControlStateNormal];
         [self.settings addTarget:self action:@selector(settingsPressed:) forControlEvents:UIControlEventTouchUpInside];
         self.exit = [[UIButton alloc] initWithFrame:CGRectMake(15, 30, 30, 30)];
-        [self.exit setBackgroundImage:[UIImage imageNamed:@"cancel"] forState:UIControlStateNormal];
+        [self.exit setBackgroundImage:[UIImage imageNamed:@"greyX"] forState:UIControlStateNormal]; // or cancel
         [self.exit addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:messages];

@@ -18,7 +18,7 @@
         CGFloat height = [UIScreen mainScreen].bounds.size.height;
 
         self.selectedButton = [[UIButton alloc]initWithFrame:CGRectMake(width - 38, 8, 30, 30)];
-        [self.selectedButton setBackgroundImage:[UIImage imageNamed:@"pusheen"] forState:UIControlStateNormal];
+        [self.selectedButton setBackgroundImage:[UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
         [self addSubview:self.selectedButton];
     }
     return self;
