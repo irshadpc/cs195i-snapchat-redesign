@@ -22,7 +22,7 @@
 @synthesize switchButton;
 @synthesize snapButton;
 @synthesize delegate;
-
+@synthesize isSelfie;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -33,21 +33,21 @@
     NSLog(@"Width: %f, Height: %f", [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     UIImage *background_image =  [UIImage imageNamed:@"camera image"];
     self.background_image_view = [[UIImageView alloc] initWithImage:background_image];
-    self.menuButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 518, 30, 30)];
-    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"menu1"] forState:UIControlStateNormal];
+    self.menuButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 500, 50, 50)];
+    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"menu1Big"] forState:UIControlStateNormal];
     //self.menuButton.backgroundColor = [UIColor redColor];
     [self.menuButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.switchButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 518, 30, 30)];
+    self.switchButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 500, 50, 50)];
     [self.switchButton setBackgroundImage:[UIImage imageNamed:@"flipCamera"] forState:UIControlStateNormal];
     //self.switchButton.backgroundColor = [UIColor purpleColor];
     [self.switchButton addTarget:self action:@selector(switchCamera:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.snapButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 488, 60, 60)];
+    self.snapButton = [[UIButton alloc] initWithFrame:CGRectMake(115, 460, 90, 90)];
     [self.snapButton setBackgroundImage:[UIImage imageNamed:@"cameraCircle"] forState:UIControlStateNormal];
     //self.snapButton.backgroundColor = [UIColor greenColor];
     [self.snapButton addTarget:self action:@selector(takeSnap:) forControlEvents:UIControlEventTouchUpInside];
-
+    self.isSelfie = NO;
     [self addSubview: self.background_image_view];
     [self addSubview:self.menuButton];
     [self addSubview:self.switchButton];
@@ -69,7 +69,14 @@
 - (void)switchCamera:(UIButton*) sender
 {
     //change background image
-    sender.backgroundColor = [UIColor blueColor];
+    if (self.isSelfie) {
+        self.isSelfie = NO;
+        background_image_view.image = [UIImage imageNamed:@"camera image"];
+    }
+    else {
+        self.isSelfie = YES;
+        background_image_view.image = [UIImage imageNamed:@"camera image 2"];
+    }
 }
 - (void)takeSnap:(UIButton*) sender
 {

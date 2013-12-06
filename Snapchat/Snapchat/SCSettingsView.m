@@ -91,12 +91,12 @@
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         self.privacy_field = [[UITextField alloc] initWithFrame:CGRectMake(160, 234, 150, 30)];
-        self.privacy_field.text = @"My Friends"; //might need escape character for @
+        self.privacy_field.text = @"Friends"; //might need escape character for @
         self.privacy_field.textColor = [UIColor lightGreenColor];
         self.privacy_field.textAlignment = UITextAlignmentRight;
         //[self.camera addTarget:self action:@selector(cameraPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.save = [[UIButton alloc] initWithFrame:CGRectMake(120, 270, 100, 40)];
+        self.save = [[UIButton alloc] initWithFrame:CGRectMake(110, 270, 100, 40)];
         self.save.backgroundColor = [UIColor separatorColor];
         [self.save setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
         [self.save setTitle:@"Save" forState:UIControlStateNormal];

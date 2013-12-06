@@ -21,8 +21,8 @@
         self.view = [[SCCameraView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         ((SCCameraView *)self.view).delegate = self;
         UITabBarItem *tbi = [self tabBarItem];
-        [tbi setTitle: @"cameraaaa"];
-        [tbi setImage: [UIImage imageNamed:@"pusheen"]];
+        [tbi setTitle: @"Camera"];
+        [tbi setImage: [UIImage imageNamed:@"cameraTab"]];
 
         
 

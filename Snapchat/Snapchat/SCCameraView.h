@@ -14,4 +14,5 @@
 @property UIButton *snapButton;
 @property UIButton *switchButton;
 @property SCCameraViewController *delegate;
+@property BOOL isSelfie;
 @end

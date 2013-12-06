@@ -31,11 +31,15 @@
 {
     [super viewDidLoad];
     UIImage *imgNavLog = [UIImage imageNamed:@"starBullet"];
-    UIBarButtonItem *left= [[UIBarButtonItem alloc] initWithImage:(imgNavLog) style:UIBarButtonItemStylePlain target:self action:@selector(presentFindFriends)];
+    UIBarButtonItem *left= [[UIBarButtonItem alloc] initWithImage:(imgNavLog) style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     left.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = left;
 
 	// Do any additional setup after loading the view.
+}
+- (void)dismiss
+{
+    [self.delegate dismissViewControllerAnimated:YES completion:nil];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

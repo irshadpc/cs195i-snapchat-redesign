@@ -28,7 +28,8 @@
         [self setBackgroundColor:[UIColor whiteColor]];
         
         self.exitButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 20, 20)];
-        self.exitButton.backgroundColor = [UIColor redColor];
+        [self.exitButton setBackgroundImage:[UIImage imageNamed:@"greyX"] forState:UIControlStateNormal];
+        //self.exitButton.backgroundColor = [UIColor redColor];
         [self.exitButton addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
         
         self.name = [[UILabel alloc] initWithFrame:CGRectMake(30,10,200,30)];
@@ -106,9 +107,18 @@
         groupremove.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
         groupremove.layer.borderColor = [UIColor lightGreenColor].CGColor;
         groupremove.layer.borderWidth = 1;
+        groupremove.tag = i;
+        [groupremove addTarget:self action:@selector(removeFriendWithButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview: grouplabel];
         [self addSubview: groupremove];
         [self addSubview: groupbullet];
     }
+}
+- (void)removeFriendWithButton:(UIButton *)sender {
+    NSInteger index = sender.tag;
+    [selectedgroup.friends removeObjectAtIndex:index];
+    [sender removeFromSuperview];
+    [self setNeedsDisplay];
+    /*need to add additional functionality for label to disappear in addition to button*/
 }
 @end
