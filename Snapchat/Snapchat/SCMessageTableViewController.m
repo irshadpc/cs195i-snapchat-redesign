@@ -20,7 +20,7 @@
     if (self) {
         UITabBarItem *tbi = [self tabBarItem];
         [tbi setTitle: @"Messages"];
-        [tbi setImage: [UIImage imageNamed:@"messeges"]];
+        [tbi setImage: [UIImage imageNamed:@"messagesTab"]];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor lightGreenColor] }
                                                  forState:UIControlStateNormal];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor darkGreenColor] }
@@ -182,13 +182,11 @@
     cell.imageView.image = icon;
     cell.textLabel.text = message.sender;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"hh:mm a"];
-    NSString* time = [dateFormatter stringFromDate: message.timestamp];
-    cell.detailTextLabel.text = time;
+    cell.detailTextLabel.text = message.timestamp;
     
-    cell.detailTextLabel.textColor = [UIColor separatorColor];
+    cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     if (message.seen) {
-        cell.textLabel.textColor = [UIColor separatorColor];
+        cell.textLabel.textColor = [UIColor lightGrayColor];
     }
     
     return cell;

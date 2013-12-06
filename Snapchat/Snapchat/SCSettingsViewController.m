@@ -24,7 +24,7 @@
         self.view = [[SCSettingsView alloc] init];
         UITabBarItem *tbi = [self tabBarItem];
         [tbi setTitle: @"settings"];
-        [tbi setImage: [UIImage imageNamed:@"pusheen"]];
+        [tbi setImage: [UIImage imageNamed:@"settingsTab"]];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor blackColor
                                                                                         ] }
                                                  forState:UIControlStateNormal];

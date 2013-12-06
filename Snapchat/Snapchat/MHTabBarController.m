@@ -14,7 +14,7 @@ static const NSInteger TagOffset = 1000;
     if (self = [super init]) {
         UITabBarItem *tbi = [self tabBarItem];
         [tbi setTitle: @"Contacts"];
-        [tbi setImage: [UIImage imageNamed:@"pusheen"]];
+        [tbi setImage: [UIImage imageNamed:@"contactsTab"]];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor lightGreenColor] }
                                                      forState:UIControlStateNormal];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor darkGreenColor] }

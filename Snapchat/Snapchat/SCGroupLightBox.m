@@ -28,7 +28,8 @@
         [self setBackgroundColor:[UIColor whiteColor]];
         
         self.exitButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 20, 20)];
-        self.exitButton.backgroundColor = [UIColor redColor];
+        [self.exitButton setBackgroundImage:[UIImage imageNamed:@"greyX"] forState:UIControlStateNormal];
+        //self.exitButton.backgroundColor = [UIColor redColor];
         [self.exitButton addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
         
         self.name = [[UILabel alloc] initWithFrame:CGRectMake(30,10,200,30)];

@@ -125,7 +125,7 @@
 {
     [super viewDidLoad];
     
-    UIImage *imgNavLog = [UIImage imageNamed:@"tabBackground"];
+    UIImage *imgNavLog = [UIImage imageNamed:@"backSmall"];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:(imgNavLog) style:UIBarButtonItemStylePlain target:self action:@selector(returnToPicture)];
     self.navigationItem.leftBarButtonItem = leftButton;
     
