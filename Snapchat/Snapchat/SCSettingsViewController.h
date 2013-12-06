@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCSettingsViewController : UIViewController
+@interface SCSettingsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @end

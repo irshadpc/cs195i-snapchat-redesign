@@ -13,5 +13,5 @@
 @property BOOL isVideo;
 @property UIImage *image;
 @property NSString *sender;
-@property NSDate *timestamp;
+@property NSString *timestamp;
 @end
