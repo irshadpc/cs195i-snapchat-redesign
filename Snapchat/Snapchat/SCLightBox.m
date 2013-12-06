@@ -185,7 +185,7 @@
     
     self.bfriend3.text = ((SCFriend *)[friendarray objectAtIndex:2]).nickname;
     if (select.isBlocked) {
-        [self.blockButton setTitle:@"UnBlock" forState:UIControlStateNormal];
+        [self.blockButton setTitle:@"Unblock" forState:UIControlStateNormal];
     } else {
         [self.blockButton setTitle:@"Block" forState:UIControlStateNormal];
 

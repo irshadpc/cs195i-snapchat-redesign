@@ -10,6 +10,7 @@
 #import "SCGroup.h"
 #import "SCFriend.h"
 #import "UIColor+SCColorPalette.h"
+#import "SCNewGroupBox.h"
 @interface SCGroupTableViewController ()
 
 @end
@@ -125,11 +126,14 @@
     // Return the number of sections.
     return 1;
 }
-
+- (void)presentVC:(UIViewController *)vc
+{
+    [self presentViewController:vc animated:YES completion:nil];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.groups count];
+    return [self.groups count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -143,19 +147,33 @@
         separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
         [cell.contentView addSubview:separatorLineView];
     }
-    SCGroup *group = (SCGroup *)[self.groups objectAtIndex:indexPath.row];
-    cell.textLabel.text = group.groupname;
-    
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"Add new group";
+        cell.textLabel.textColor = [UIColor darkGreenColor];
+        cell.textLabel.textAlignment = UITextAlignmentCenter;
+        cell.backgroundColor = [UIColor separatorColor];
+    } else {
+        SCGroup *group = (SCGroup *)[self.groups objectAtIndex:indexPath.row -1];
+        cell.textLabel.text = group.groupname;
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        self.b = [[SCNewGroupBox alloc] initWithFrame:CGRectMake(30, 20, width - 60, 350)];
+        self.b.name.text = @"New Group";
+        [self.view addSubview:self.b];
+    } else {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     self.lightBox = [[SCGroupLightBox alloc] initWithFrame:CGRectMake(30, 20, width - 60, 350)];
-    self.lightBox.selectedgroup = [self.groups objectAtIndex:indexPath.row];
+    self.lightBox.selectedgroup = [self.groups objectAtIndex:indexPath.row-1];
     self.lightBox.delegate = self;
     [self.view addSubview:self.lightBox];
+    }
 }
+
 - (void)deleteFriend:(SCGroup *)friend
 {
     [self.lightBox removeFromSuperview];

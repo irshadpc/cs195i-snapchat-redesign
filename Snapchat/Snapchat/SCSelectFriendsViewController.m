@@ -118,10 +118,153 @@
         [self.friends addObject:friend5];
         [self.friends addObject:friend6];
         [self.friends addObject:friend7];
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
 
         // Custom initialization
     }
     return self;
+}
+- (id)initWithoutGroup:(SCGroup *)group
+{
+    
+    self = [super init];
+    if (self) {
+        self.friends = [NSMutableArray array];
+        self.groups = [NSMutableArray array];
+        NSMutableArray *g = [NSMutableArray array];
+        NSMutableArray *f = [NSMutableArray array];
+        SCFriend *friend1 = [[SCFriend alloc]init];
+        friend1.username = @"ac115";
+        friend1.nickname = @"Alex Chou";
+        
+        SCFriend *friend2 = [[SCFriend alloc]init];
+        friend2.username = @"eyl";
+        friend2.nickname = @"Evan Li";
+        
+        SCFriend *friend3 = [[SCFriend alloc]init];
+        friend3.username = @"jsl15";
+        friend3.nickname = @"Jessica Liang";
+        
+        SCFriend *friend4 = [[SCFriend alloc]init];
+        friend4.username = @"lduan5";
+        friend4.nickname = @"Lucy Duan";
+        
+        SCFriend *friend5 = [[SCFriend alloc]init];
+        friend5.username = @"DB60";
+        friend5.nickname = @"D'Brickashaw Ferguson";
+        
+        SCFriend *friend6 = [[SCFriend alloc]init];
+        friend6.username = @"ibrahim4";
+        friend6.nickname = @"Ibrahim Moizoos";
+        
+        SCFriend *friend7 = [[SCFriend alloc]init];
+        friend7.username = @"Tjess6";
+        friend7.nickname = @"Thomas Jessison";
+        
+        SCGroup *group1 = [[SCGroup alloc]init];
+        group1.groupname = @"Brown University";
+        
+        SCGroup *group2 = [[SCGroup alloc]init];
+        group2.groupname = @"Cool frandz";
+        
+        SCGroup *group3 = [[SCGroup alloc]init];
+        group3.groupname = @"Mah Peepz";
+        
+        [group1.friends addObject:friend1];
+        [group1.friends addObject:friend2];
+        [group1.friends addObject:friend3];
+        [friend1.groups addObject:group1];
+        [friend2.groups addObject:group1];
+        [friend3.groups addObject:group1];
+        
+        [group2.friends addObject:friend4];
+        [group2.friends addObject:friend7];
+        [friend4.groups addObject:group2];
+        [friend7.groups addObject:group2];
+        
+        [group3.friends addObject:friend5];
+        [group3.friends addObject:friend6];
+        [friend5.groups addObject:group3];
+        [friend6.groups addObject:group3];
+        
+        [friend1.bestFriends addObject:friend2];
+        [friend1.bestFriends addObject:friend3];
+        [friend1.bestFriends addObject:friend4];
+        
+        [friend2.bestFriends addObject:friend3];
+        [friend2.bestFriends addObject:friend4];
+        [friend2.bestFriends addObject:friend5];
+        
+        [friend3.bestFriends addObject:friend4];
+        [friend3.bestFriends addObject:friend5];
+        [friend3.bestFriends addObject:friend6];
+        
+        [friend4.bestFriends addObject:friend5];
+        [friend4.bestFriends addObject:friend6];
+        [friend4.bestFriends addObject:friend7];
+        
+        [friend5.bestFriends addObject:friend6];
+        [friend5.bestFriends addObject:friend7];
+        [friend5.bestFriends addObject:friend1];
+        
+        [friend6.bestFriends addObject:friend7];
+        [friend6.bestFriends addObject:friend1];
+        [friend6.bestFriends addObject:friend2];
+        
+        [friend7.bestFriends addObject:friend1];
+        [friend7.bestFriends addObject:friend2];
+        [friend7.bestFriends addObject:friend3];
+        
+        [g addObject:group1];
+        [g addObject:group2];
+        [g addObject:group3];
+        
+        [f addObject:friend1];
+        [f addObject:friend2];
+        [f addObject:friend3];
+        [f addObject:friend4];
+        [f addObject:friend5];
+        [f addObject:friend6];
+        [f addObject:friend7];
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+        for (int i = 0; i < [g count]; i ++) {
+            if ([g objectAtIndex:i] == group.groupname) {
+                [self.groups removeObject:g];
+            }
+        }
+        NSMutableArray *ingroup = [NSMutableArray array];
+        for (int i = 0;  i < [group.friends count]; i++) {
+            for (int x = 0; x < [f count]; x++) {
+                if (((SCFriend*)[group.friends objectAtIndex:i]).nickname == ((SCFriend*)[f objectAtIndex:i]).nickname ) {
+                    [ingroup addObject:[f objectAtIndex:i] ];
+                }
+            }
+        }
+        for (SCFriend * s in ingroup) {
+            [f removeObject:s];
+        }
+        self.groups = g;
+        self.friends = f;
+        // Custom initialization
+    }
+    return self;
+    
+}
+- (void)removeGroup:(SCGroup *)group
+{
+    for (SCGroup *g in self.groups) {
+        if (g.groupname == group.groupname) {
+            [self.groups removeObject:g];
+        }
+    }
+    for (SCFriend *friend in group.friends) {
+        for (SCFriend *f in self.friends) {
+            if (f.nickname == friend.nickname) {
+                [self.friends removeObject:f];
+            }
+        }
+    }
+    [self.tableView reloadData];
 }
 - (void)viewDidLoad
 {
@@ -195,12 +338,14 @@
             cell.textLabel.text = @"All members of group";
             cell.detailTextLabel.text = nil;
             [cell.imageView setImage:[UIImage imageNamed:@"addFriendtoGroup"]];
+            cell.imageView.backgroundColor = [UIColor clearColor];
         } else {
             SCFriend *currFriend = [currentGroup.friends objectAtIndex:indexPath.row - 1];
             cell.textLabel.text = currFriend.nickname;
             cell.detailTextLabel.text = currFriend.username;
             [cell hideButton];
         }
+        
         //cell.imageView.image = [UIImage imageNamed:@"pusheen"];
     } else {
         SCFriend *currentFriend = [self.friends objectAtIndex:indexPath.row];

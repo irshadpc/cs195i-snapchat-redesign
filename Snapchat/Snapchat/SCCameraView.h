@@ -16,5 +16,4 @@
 @property SCCameraViewController *delegate;
 @property BOOL isSelfie;
 @property UIScrollView *scroll;
-
 @end

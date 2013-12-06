@@ -26,7 +26,8 @@
         drawingOn = NO;
         drawColor = [UIColor redColor];
         captionField = [[UITextField alloc] initWithFrame:CGRectMake(0, 264, 320, 30)];
-        captionField.backgroundColor = [UIColor darkGrayColor];
+        [captionField setBackgroundColor:[UIColor colorWithRed:.1 green:.1 blue:.1 alpha:.7f]];
+
         captionField.textColor = [UIColor whiteColor];
         captionField.delegate = self;
         [captionField addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)]];
