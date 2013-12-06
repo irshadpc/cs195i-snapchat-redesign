@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SCFriend.h"
 @interface SCSearchResultsController : UITableViewController
-@property NSMutableArray *results;
+@property NSMutableArray *contacts;
+@property NSMutableArray *users;
 @end
