@@ -12,13 +12,13 @@
 - (void)deleteFriend: (SCGroup *)friend;
 - (void)presentVC:(UIViewController*)vc;
 @end
-@interface SCGroupLightBox : UIView
+@interface SCGroupLightBox : UIView <UITextFieldDelegate>
 @property SCGroup *selectedgroup;
 @property UIButton *exitButton;
 @property UIButton *editButton;
 @property UIButton *deleteButton;
 @property UIButton *addButton;
-@property UILabel *name;
+@property UITextField *name;
 @property UILabel *members;
 @property UITableViewController<SCGroupLightBoxDelegate> *delegate;
 @end

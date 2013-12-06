@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SCCameraViewController.h"
-@interface SCCameraView : UIView
+@interface SCCameraView : UIView <UIGestureRecognizerDelegate>
 @property UIImageView *background_image_view;
 @property UIButton *menuButton;
 @property UIButton *snapButton;
