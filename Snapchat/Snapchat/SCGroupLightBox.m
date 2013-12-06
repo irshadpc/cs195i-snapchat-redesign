@@ -31,9 +31,11 @@
         [self.exitButton setBackgroundImage:[UIImage imageNamed:@"greyX"] forState:UIControlStateNormal];
         [self.exitButton addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.name = [[UILabel alloc] initWithFrame:CGRectMake(30,10,200,30)];
+        self.name = [[UITextField alloc] initWithFrame:CGRectMake(40,10,180,30)];
         self.name.textColor = [UIColor darkGreenColor];
         self.name.textAlignment = UITextAlignmentCenter;
+        [self.name setEnabled:NO];
+        self.name.delegate = self;
         
         self.editButton = [[UIButton alloc] initWithFrame:CGRectMake(11, 50, 72, 30)];
         self.editButton.backgroundColor = [UIColor clearColor];
@@ -42,6 +44,7 @@
         self.editButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
         [self.editButton setTitle:@"Edit Name" forState:UIControlStateNormal];
         [self.editButton setTitleColor:[UIColor darkGreenColor] forState:UIControlStateNormal];
+        [self.editButton addTarget:self action:@selector(editName:) forControlEvents:UIControlEventTouchUpInside];
         
         self.addButton = [[UIButton alloc] initWithFrame:CGRectMake(177, 50, 72, 30)];
         self.addButton.backgroundColor = [UIColor clearColor];
@@ -119,5 +122,19 @@
     [sender removeFromSuperview];
     [self setNeedsDisplay];
     /*need to add additional functionality for label to disappear in addition to button*/
+}
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [self.name setEnabled:NO];
+    self.name.layer.borderColor = [UIColor clearColor].CGColor;
+    self.name.layer.borderWidth = 0;
+    self.selectedgroup.groupname = self.name.text;
+    [textField resignFirstResponder];
+    return YES;
+}
+-(void) editName: (UIButton *)sender {
+    [self.name setEnabled:YES];
+    self.name.layer.borderColor = [UIColor darkGreenColor].CGColor;
+    self.name.layer.borderWidth = 1;
+    [self.name becomeFirstResponder];
 }
 @end

@@ -46,6 +46,7 @@
         self.editButton.layer.borderColor = [UIColor darkGreenColor].CGColor;
         self.editButton.layer.borderWidth = 1;
         self.editButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
+        [self.editButton addTarget:self action:@selector(editName:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.editButton setTitle:@"Edit Name" forState:UIControlStateNormal];
         [self.editButton setTitleColor:[UIColor darkGreenColor] forState:UIControlStateNormal];
@@ -68,10 +69,12 @@
         [self.blockButton addTarget:self action:@selector(blockFriend:) forControlEvents:UIControlEventTouchUpInside];
 
         /*change the below label to something else to allow for editing the text */
-        self.name = [[UILabel alloc] initWithFrame:CGRectMake(30,10,200,30)];
+        self.name = [[UITextField alloc] initWithFrame:CGRectMake(40,10,180,30)];
         self.name.text = _selectedfriend.nickname;
         self.name.textColor = [UIColor darkGreenColor];
+        [self.name setEnabled:NO];
         self.name.textAlignment = UITextAlignmentCenter;
+        self.name.delegate = self;
         
         self.score = [[UILabel alloc] initWithFrame:CGRectMake(11,100,250,20)];
         self.score.text = [NSString stringWithFormat:@"Score: %d", (int)_selectedfriend.points];
@@ -218,6 +221,20 @@
 - (void) dismiss: (UIButton*)sender
 {
     [self removeFromSuperview];
+}
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [self.name setEnabled:NO];
+    self.name.layer.borderColor = [UIColor clearColor].CGColor;
+    self.name.layer.borderWidth = 0;
+    [textField resignFirstResponder];
+    self.selectedfriend.nickname = self.name.text;
+    return YES;
+}
+-(void) editName: (UIButton *)sender {
+    [self.name setEnabled:YES];
+    self.name.layer.borderColor = [UIColor darkGreenColor].CGColor;
+    self.name.layer.borderWidth = 1;
+    [self.name becomeFirstResponder];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -58,8 +58,12 @@
         video.text = @"Video";
         UILabel *photo = [[UILabel alloc]initWithFrame:CGRectMake(135, 0, 50, 20)];
         photo.text = @"Photo";
-        photo.textColor = [UIColor grayColor];
+        photo.textColor = [UIColor yellowColor];
         video.textColor = [UIColor grayColor];
+        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+        panRecognizer.delegate = self;
+        [self.scroll addGestureRecognizer:panRecognizer];
+        //self.scroll.canCancelContentTouches = YES;
 
         [self.scroll addSubview:photo];
         [self.scroll addSubview:video];
@@ -102,6 +106,24 @@
     modal.cameraVC = self.delegate;
     [delegate presentModal:modal withAnimation:NO];
 
+}
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    
+    CGPoint translation = [recognizer translationInView:self];
+    CGFloat diff = recognizer.view.center.x + translation.x - self.snapButton.center.x;
+    if (diff < 0) {
+        ((UILabel *)[self.scroll.subviews objectAtIndex:1]).textColor = [UIColor yellowColor];
+        ((UILabel *)[self.scroll.subviews objectAtIndex:0]).textColor = [UIColor grayColor];
+    }
+    else if (diff > 0){
+        ((UILabel *)[self.scroll.subviews objectAtIndex:0]).textColor = [UIColor yellowColor];
+        ((UILabel *)[self.scroll.subviews objectAtIndex:1]).textColor = [UIColor grayColor];
+    }
+    [recognizer setTranslation:CGPointMake(0, 0) inView:self];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return TRUE;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -14,13 +14,13 @@
 - (void)unblockFriend:(SCFriend *)friend;
 
 @end
-@interface SCLightBox : UIView
+@interface SCLightBox : UIView <UITextFieldDelegate>
 @property SCFriend *selectedfriend;
 @property UIButton *exitButton;
 @property UIButton *editButton;
 @property UIButton *deleteButton;
 @property UIButton *blockButton;
-@property UILabel *name;
+@property UITextField *name;
 @property UILabel *score;
 @property UILabel *bestfriends;
 @property UILabel *groups;
