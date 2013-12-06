@@ -34,7 +34,7 @@
     UIImage *background_image =  [UIImage imageNamed:@"camera image"];
     self.background_image_view = [[UIImageView alloc] initWithImage:background_image];
     self.menuButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 500, 50, 50)];
-    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"menu1Big"] forState:UIControlStateNormal];
+    [self.menuButton setBackgroundImage:[UIImage imageNamed:@"menu3"] forState:UIControlStateNormal];
     //self.menuButton.backgroundColor = [UIColor redColor];
     [self.menuButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     

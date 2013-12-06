@@ -29,7 +29,7 @@
 
         self.messages = [[UIButton alloc] initWithFrame:CGRectMake(60, 184, 80, 80)];
         //self.messages.backgroundColor = [UIColor purpleColor];
-        [self.messages setBackgroundImage:[UIImage imageNamed:@"messages"] forState:UIControlStateNormal];
+        [self.messages setBackgroundImage:[UIImage imageNamed:@"messagesNotif"] forState:UIControlStateNormal];
         [self.messages addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
         
         self.camera = [[UIButton alloc] initWithFrame:CGRectMake(60, 304, 80, 80)];
@@ -39,7 +39,7 @@
 
         self.friends = [[UIButton alloc] initWithFrame:CGRectMake(180, 184, 80, 80)];
         //self.friends.backgroundColor = [UIColor orangeColor];
-        [self.friends setBackgroundImage:[UIImage imageNamed:@"friends"] forState:UIControlStateNormal];
+        [self.friends setBackgroundImage:[UIImage imageNamed:@"contactsNotif"] forState:UIControlStateNormal];
         [self.friends addTarget:self action:@selector(friendsPressed:) forControlEvents:UIControlEventTouchUpInside];
 
         self.settings = [[UIButton alloc] initWithFrame:CGRectMake(180, 304, 80, 80)];
