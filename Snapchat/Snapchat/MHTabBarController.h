@@ -4,6 +4,7 @@
  * A custom tab bar container view controller. It works just like a regular
  * UITabBarController, except the tabs are at the top and look different.
  */
+#import "SCFindFriendsViewController.h"
 @interface MHTabBarController : UIViewController
 
 @property (nonatomic, copy) NSArray *viewControllers;

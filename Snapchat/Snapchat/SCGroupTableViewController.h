@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SCGroupLightBox.h"
+#import "SCSelectFriendsViewController.h"
 @interface SCGroupTableViewController : UITableViewController<SCGroupLightBoxDelegate>
 @property NSMutableArray *groups;
 @property SCGroupLightBox *lightBox;
