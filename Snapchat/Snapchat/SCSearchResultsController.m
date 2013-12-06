@@ -104,7 +104,7 @@
     cell.detailTextLabel.text = user.username;
     
     UIButton *acceptButton = [[UIButton alloc] initWithFrame:CGRectMake(width -40, 12, 24, 24)];
-    [acceptButton setImage:[UIImage imageNamed:@"lightGreenCheckSmall"] forState:UIControlStateNormal];
+    [acceptButton setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     [acceptButton addTarget:self action:@selector(acceptFriend:) forControlEvents:UIControlEventTouchUpInside];
     //[acceptButton setImage:[UIImage imageNamed:@"lightGreenCheckSmall"] forState:UIControlStateSelected];
     [cell addSubview:acceptButton];
