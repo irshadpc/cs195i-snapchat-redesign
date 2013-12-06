@@ -8,6 +8,8 @@
 
 #import "SCMessageTableViewController.h"
 #import "UIColor+SCColorPalette.h"
+#import "SCImageView.h"
+#import "SCMessageCell.h"
 @interface SCMessageTableViewController ()
 
 @end
@@ -19,9 +21,10 @@
     self = [super initWithStyle:style];
     if (self) {
         UITabBarItem *tbi = [self tabBarItem];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"messages:" image:[UIImage imageNamed:@"messages"] selectedImage:[UIImage imageNamed:@"messages"]];
         [tbi setTitle: @"Messages"];
         [tbi setImage: [UIImage imageNamed:@"messagesTab"]];
-        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor lightGreenColor] }
+                [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor lightGreenColor] }
                                                  forState:UIControlStateNormal];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor darkGreenColor] }
                                                  forState:UIControlStateHighlighted];
@@ -117,7 +120,20 @@
     }
     return self;
 }
-
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *tempView=[[UIView alloc]initWithFrame:CGRectMake(0,0,320,20)];
+    tempView.backgroundColor=[UIColor lightGreenColor];
+    
+    UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(10,2,310,20)];
+    tempLabel.backgroundColor=[UIColor clearColor];
+    tempLabel.textColor = [UIColor whiteColor]; //here you can change the text color of header.
+    tempLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+    tempLabel.text = @"Press and hold to view";
+    [tempView addSubview:tempLabel];
+    
+    return tempView;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -139,14 +155,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.messages count];
 }
@@ -156,15 +170,17 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle  reuseIdentifier:@"Cell"];
+        cell = [[SCMessageCell alloc] initWithStyle:UITableViewCellStyleSubtitle  reuseIdentifier:@"Cell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
         separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
         [cell.contentView addSubview:separatorLineView];
+        ((SCMessageCell *)cell).delegate = self;
 
     }
     
     SCMessage *message = (SCMessage *)[self.messages objectAtIndex:indexPath.row];
+    ((SCMessageCell *)cell).message = message;
     UIImage *icon;
     if (message.isVideo) {
         if (message.seen) {
@@ -191,10 +207,31 @@
     
     return cell;
 }
-
+- (void)showImage
+{
+    SCImageView *imageView = [[SCImageView alloc] initWithFrame:[UIScreen mainScreen].bounds ];
+    imageView.delegate = self;
+    UIViewController *vc = [[UIViewController alloc]init];
+    vc.view = imageView;
+    [self presentViewController:vc animated:NO completion:Nil];
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    [self.tabBarController.tabBar setHidden:YES];
+    [UIApplication sharedApplication].statusBarHidden = YES;
+}
+- (void)finishedViewing
+{
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
+    [self.tabBarController.tabBar setHidden:NO];
+    [self.tableView reloadData];
+}
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SCImageView *imageView = [[SCImageView alloc] initWithFrame:[UIScreen mainScreen].bounds ];
+    [self.tableView addSubview:imageView];
     
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    [UIApplication sharedApplication].statusBarHidden = YES;
+
 }
 /*
 // Override to support conditional editing of the table view.

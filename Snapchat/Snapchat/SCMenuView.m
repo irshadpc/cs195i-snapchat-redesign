@@ -112,6 +112,8 @@
 
        // [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];
         [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+        [[UITabBar appearance] setTintColor:[UIColor lightGreenColor]];
+        [self.tbc.tabBar setSelectedImageTintColor: [UIColor redColor]];
         //[[UITabBar appearance] setTintColor:[UIColor redColor]];
         
        

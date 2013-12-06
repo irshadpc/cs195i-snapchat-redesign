@@ -10,7 +10,10 @@
 #import "UIColor+SCColorPalette.h"
 #import "SCSelectFriendsCell.h"
 @interface SCSelectFriendsViewController ()
-
+{
+    UITableView *_tableView;
+    UIToolbar *_toolbar;
+}
 @end
 
 @implementation SCSelectFriendsViewController
@@ -120,7 +123,6 @@
     }
     return self;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -135,10 +137,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-- (void)returnToPicture
-{
-    [self.delegate dismissViewControllerAnimated:NO completion:nil];
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

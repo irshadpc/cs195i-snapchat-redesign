@@ -1,6 +1,7 @@
 
 #import "MHTabBarController.h"
 #import "UIColor+SCColorPalette.h"
+#import "SCSelectFriendsViewController.h"
 static const NSInteger TagOffset = 1000;
 
 @implementation MHTabBarController
@@ -25,7 +26,10 @@ static const NSInteger TagOffset = 1000;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    UIImage *imgNavLog = [UIImage imageNamed:@"starBullet"];
+    UIBarButtonItem *rightbutton= [[UIBarButtonItem alloc] initWithImage:(imgNavLog) style:UIBarButtonItemStylePlain target:self action:@selector(presentFindFriends)];
+    rightbutton.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = rightbutton;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     CGRect rect = CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.tabBarHeight);
@@ -44,7 +48,23 @@ static const NSInteger TagOffset = 1000;
     
     [self reloadTabButtons];
 }
+- (void)presentFindFriends
+{
+    
+    SCFindFriendsViewController *s = [[SCFindFriendsViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:s];
+    [nav.navigationBar.topItem setTitle:@"Find friends" ];
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
+    separatorLineView.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
+    [nav.navigationBar addSubview:separatorLineView];
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [nav.navigationBar setTranslucent:NO];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
+    s.delegate = self;
+    
 
+    [self presentViewController: nav animated:YES completion:nil];
+}
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];

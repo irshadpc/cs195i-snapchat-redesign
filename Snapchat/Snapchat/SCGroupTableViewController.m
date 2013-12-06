@@ -140,6 +140,22 @@
     [self.groups removeObject:friend];
     [self.tableView deleteRowsAtIndexPaths: @[i] withRowAnimation:UITableViewRowAnimationTop];
 }
+- (void)presentFindFriends
+{
+    
+    SCSelectFriendsViewController *s = [[SCSelectFriendsViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:s];
+    [nav.navigationBar.topItem setTitle:@"Send to..." ];
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
+    separatorLineView.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
+    [nav.navigationBar addSubview:separatorLineView];
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [nav.navigationBar setTranslucent:NO];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
+    s.delegate = self;
+    
+    [self presentViewController: nav animated:YES completion:nil];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
