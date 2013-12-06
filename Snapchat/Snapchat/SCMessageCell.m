@@ -22,8 +22,8 @@
     if (self.message.seen) {
         return;
     } else {
-        self.message.seen = true;
-        [self.delegate showImage];
+        self.message.seen = YES;
+        [self.delegate showImage:self.message];
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

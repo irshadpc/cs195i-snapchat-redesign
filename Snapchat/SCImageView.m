@@ -9,7 +9,9 @@
 #import "SCImageView.h"
 
 @implementation SCImageView
-
+@synthesize timeRemaining;
+@synthesize timeLabel;
+@synthesize timer;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -20,6 +22,7 @@
         [iv addTarget:self action:@selector(removeFromSuperview:) forControlEvents:UIControlEventTouchUpInside];
         [self setBackgroundColor:[UIColor blackColor]];
         [self addSubview:iv];
+        timeRemaining = 10;
     }
     return self;
 }

@@ -14,5 +14,13 @@
 @synthesize image;
 @synthesize sender;
 @synthesize timestamp;
-
+@synthesize time;
+@synthesize isRunning;
+-(id)init {
+    self = [super init];
+    if (self) {
+        self.isRunning = false;
+    }
+    return self;
+}
 @end

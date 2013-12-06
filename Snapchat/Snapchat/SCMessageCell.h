@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SCMessage.h"
 @protocol SCMessageCellDelegate
-- (void)showImage;
+- (void)showImage:(SCMessage *)message;
 @end
 @interface SCMessageCell : UITableViewCell
 @property UITableViewController<SCMessageCellDelegate>* delegate;

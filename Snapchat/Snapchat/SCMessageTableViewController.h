@@ -12,4 +12,5 @@
 #import "SCImageView.h"
 @interface SCMessageTableViewController : UITableViewController<SCMessageCellDelegate,SCImageViewDelegate>
 @property NSMutableArray* messages;
+@property NSTimer* timer;
 @end

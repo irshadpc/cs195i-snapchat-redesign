@@ -12,4 +12,7 @@
 @end
 @interface SCImageView : UIView
 @property UITableViewController <SCImageViewDelegate> *delegate;
+@property NSInteger timeRemaining;
+@property NSTimer *timer;
+@property UILabel *timeLabel;
 @end

@@ -41,7 +41,7 @@
                   symbolName = "-[SCPhotoEditingView timerImageArray]"
                   moduleName = "Snapchat"
                   urlString = "file:///Users/Jake/Desktop/github/cs195i-snapchat-redesign/Snapchat/Snapchat/SCPhotoEditingView.h"
-                  timestampString = "408014242.656278"
+                  timestampString = "408022304.698655"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -55,7 +55,7 @@
                   symbolName = "-[SCPhotoEditingView setTimerImageArray:]"
                   moduleName = "Snapchat"
                   urlString = "file:///Users/Jake/Desktop/github/cs195i-snapchat-redesign/Snapchat/Snapchat/SCPhotoEditingView.h"
-                  timestampString = "408014242.656566"
+                  timestampString = "408022304.699034"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -78,6 +78,54 @@
             startingLineNumber = "33"
             endingLineNumber = "33"
             landmarkName = "-initWithFrame:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Snapchat/SCMessageTableViewController.m"
+            timestampString = "408021486.017405"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-initWithStyle:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Snapchat/SCMessageTableViewController.m"
+            timestampString = "408021506.423824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Snapchat/SCMessageTableViewController.m"
+            timestampString = "408022073.113541"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
