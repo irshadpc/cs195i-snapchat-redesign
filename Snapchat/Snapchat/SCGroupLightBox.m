@@ -122,7 +122,7 @@
 
 - (void)addFriends
 {
-    SCFriendSelectController *vc = [[SCFriendSelectController alloc]initWithOutGroup:self.selectedgroup];
+    SCFriendSelectController *vc = [[SCFriendSelectController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [nav.navigationBar.topItem setTitle:@"Add friends to Group" ];
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
@@ -132,7 +132,7 @@
     [nav.navigationBar setTranslucent:NO];
     [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackground"] forBarMetrics:UIBarMetricsDefault];
     vc.delegate = self.delegate;
-
+    
     vc.goButton = @"Save";
     [self.delegate presentVC: nav];
     [self removeFromSuperview];
