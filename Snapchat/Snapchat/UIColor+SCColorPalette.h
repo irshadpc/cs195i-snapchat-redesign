@@ -15,5 +15,5 @@
 + (UIColor *)darkGreenColor;
 
 + (UIColor *)separatorColor;
-
++ (UIColor *)paleGreen;
 @end

@@ -184,10 +184,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
+    SCSelectFriendsCell *cell;//= [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //if (!cell) {
         cell = [[SCSelectFriendsCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+   // }
     // Configure the cell...
     if (indexPath.section < [self.groups count]) {
         SCGroup *currentGroup = ((SCGroup *)[self.groups objectAtIndex:indexPath.section]);
@@ -198,6 +198,7 @@
             SCFriend *currFriend = [currentGroup.friends objectAtIndex:indexPath.row - 1];
             cell.textLabel.text = currFriend.nickname;
             cell.detailTextLabel.text = currFriend.username;
+            [cell hideButton];
         }
         //cell.imageView.image = [UIImage imageNamed:@"pusheen"];
     } else {
