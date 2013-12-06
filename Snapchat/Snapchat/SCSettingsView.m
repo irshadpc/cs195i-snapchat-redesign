@@ -102,6 +102,7 @@
         
         self.save = [[UIButton alloc] initWithFrame:CGRectMake(110, 270, 100, 40)];
         self.save.backgroundColor = [UIColor separatorColor];
+        [self.save addTarget:self action:@selector(displayFeedback) forControlEvents:UIControlEventTouchUpInside];
         [self.save setTitleColor:[UIColor lightGreenColor] forState:UIControlStateNormal];
         [self.save setTitle:@"Save" forState:UIControlStateNormal];
         //[self.save addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -133,6 +134,30 @@
     
     [textField resignFirstResponder];
     return YES;
+}
+- (void)displayFeedback
+{
+    UILabel *feedback = [[UILabel alloc]initWithFrame:CGRectMake(20, 370, 280, 30)];
+    feedback.textColor = [UIColor whiteColor];
+    feedback.textAlignment = UITextAlignmentCenter;
+    [feedback setText:@"Settings were saved!"];
+    [feedback setBackgroundColor:[UIColor colorWithRed:.1 green:.1 blue:.1 alpha:.7f]];
+    [self addSubview:feedback];
+    feedback.alpha = 1.0f;
+    [UIView animateWithDuration:20.0
+                          delay:20.0 options:nil
+                     animations:^{
+                         feedback.alpha = 1;
+                     }
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:1.0
+                                          animations:^{
+                                              feedback.alpha = 0;
+                                          }
+                                          completion:^(BOOL finished){
+                                              [feedback removeFromSuperview];
+                                          }];
+                     }];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -87,6 +87,30 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+- (void)displayFeedbackWithGroup:(NSString *)name andAction: (NSString *)action
+{
+    UILabel *feedback = [[UILabel alloc]initWithFrame:CGRectMake(20, 370, 280, 20)];
+    feedback.textColor = [UIColor whiteColor];
+    feedback.textAlignment = UITextAlignmentCenter;
+    [feedback setText:[NSString stringWithFormat:@"%@ was %@", name, action]];
+    [feedback setBackgroundColor:[UIColor colorWithRed:.1 green:.1 blue:.1 alpha:.7f]];
+    [self.view addSubview:feedback];
+    feedback.alpha = 1.0f;
+    [UIView animateWithDuration:5.0
+                          delay:8.0 options:nil
+                     animations:^{
+                         feedback.alpha = 1;
+                     }
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:1.0
+                                          animations:^{
+                                              feedback.alpha = 0;
+                                          }
+                                          completion:^(BOOL finished){
+                                              [feedback removeFromSuperview];
+                                          }];
+                     }];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -132,13 +156,14 @@
     self.lightBox.delegate = self;
     [self.view addSubview:self.lightBox];
 }
-- (void)deleteFriend:(SCFriend *)friend
+- (void)deleteFriend:(SCGroup *)friend
 {
     [self.lightBox removeFromSuperview];
     NSInteger index = [self.groups indexOfObject:friend];
     NSIndexPath *i = [NSIndexPath indexPathForRow:index inSection:0];
     [self.groups removeObject:friend];
     [self.tableView deleteRowsAtIndexPaths: @[i] withRowAnimation:UITableViewRowAnimationTop];
+    [self displayFeedbackWithGroup:friend.groupname andAction:@"removed"];
 }
 - (void)presentFindFriends
 {

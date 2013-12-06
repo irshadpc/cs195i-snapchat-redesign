@@ -29,7 +29,7 @@
 
         self.messages = [[UIButton alloc] initWithFrame:CGRectMake(60, 184, 80, 80)];
         //self.messages.backgroundColor = [UIColor purpleColor];
-        [self.messages setBackgroundImage:[UIImage imageNamed:@"messages"] forState:UIControlStateNormal];
+        [self.messages setBackgroundImage:[UIImage imageNamed:@"messagesNotif"] forState:UIControlStateNormal];
         [self.messages addTarget:self action:@selector(messagePressed:) forControlEvents:UIControlEventTouchUpInside];
         
         self.camera = [[UIButton alloc] initWithFrame:CGRectMake(60, 304, 80, 80)];
@@ -39,7 +39,7 @@
 
         self.friends = [[UIButton alloc] initWithFrame:CGRectMake(180, 184, 80, 80)];
         //self.friends.backgroundColor = [UIColor orangeColor];
-        [self.friends setBackgroundImage:[UIImage imageNamed:@"friends"] forState:UIControlStateNormal];
+        [self.friends setBackgroundImage:[UIImage imageNamed:@"contactsNotif"] forState:UIControlStateNormal];
         [self.friends addTarget:self action:@selector(friendsPressed:) forControlEvents:UIControlEventTouchUpInside];
 
         self.settings = [[UIButton alloc] initWithFrame:CGRectMake(180, 304, 80, 80)];
@@ -76,8 +76,7 @@
         [settingsNav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
         //settingsNav.navigationBar.translucent = NO;
         UIView* separatorLineView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
-        separatorLineView1.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
-        [settingsNav.navigationBar addSubview:separatorLineView2];
+        separatorLineView2.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
         [settingsNav.navigationBar addSubview:separatorLineView2];
 
         SCRequestsTableViewController *listViewController1 = [[SCRequestsTableViewController alloc] init];
@@ -106,8 +105,7 @@
         [self.tbc setViewControllers: @[messageNav, cam, friendsNav, settingsNav]];
         UIImage *tabBarBackground = [UIImage imageNamed:@"tabBackground"];
         UIView* separatorLineView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 320, 1)];
-        separatorLineView1.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
-        [friendsNav.navigationBar addSubview:separatorLineView3];
+        separatorLineView3.backgroundColor = [UIColor lightGreenColor]; // set color as you want.
         [friendsNav.navigationBar addSubview:separatorLineView3];
 
        // [self.tbc.tabBar setBackgroundColor:[UIColor greenColor]];

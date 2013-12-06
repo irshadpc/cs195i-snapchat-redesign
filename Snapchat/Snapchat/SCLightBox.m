@@ -164,6 +164,11 @@
         [self.delegate blockFriend:self.selectedfriend];
     }
 }
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+}
 - (void)setSelectedfriend:(SCFriend *)select
 {
     _selectedfriend = select;
@@ -186,11 +191,13 @@
 
     }
     NSMutableArray *grouparray = _selectedfriend.groups;
+    self.groupView = [[UIView alloc]initWithFrame:CGRectMake(11, 245, 250, 300)];
+    
     for (int i = 0; i < [grouparray count]; i++) {
-        CGFloat y_pos = 245 + i * 20;
-        UIImageView *groupbullet = [[UIImageView alloc] initWithFrame:CGRectMake(11, y_pos, 15, 15)];
-        UILabel *grouplabel = [[UILabel alloc] initWithFrame:CGRectMake(36,y_pos, 150, 15)];
-        UIButton *groupremove = [[UIButton alloc] initWithFrame:CGRectMake(186, y_pos, 60, 15)];
+        CGFloat y_pos = i * 20;
+        UIImageView *groupbullet = [[UIImageView alloc] initWithFrame:CGRectMake(0, y_pos, 15, 15)];
+        UILabel *grouplabel = [[UILabel alloc] initWithFrame:CGRectMake(25,y_pos, 150, 15)];
+        UIButton *groupremove = [[UIButton alloc] initWithFrame:CGRectMake(175, y_pos, 60, 15)];
         grouplabel.text = ((SCGroup *) [grouparray objectAtIndex:i]).groupname;
         grouplabel.font = [UIFont systemFontOfSize:10.0];
         [groupremove setTitle:@"Remove" forState:UIControlStateNormal];
@@ -201,16 +208,19 @@
         groupremove.layer.borderWidth = 1;
         groupremove.tag = i;
         [groupremove addTarget:self action:@selector(removeGroupWithButton:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview: grouplabel];
-        [self addSubview: groupremove];
-        [self addSubview: groupbullet];
+        [self.groupView addSubview: grouplabel];
+        [self.groupView addSubview: groupremove];
+        [self.groupView addSubview: groupbullet];
     }
+    [self addSubview:self.groupView];
 }
 - (void)removeGroupWithButton:(UIButton *)sender {
     NSInteger index = sender.tag;
     [selectedfriend.groups removeObjectAtIndex:index];
     [sender removeFromSuperview];
     [self setNeedsDisplay];
+    [self.groupView removeFromSuperview];
+    //[self setSelectedfriend:self.selectedfriend];
     /*need to add additional functionality for label to disappear in addition to button*/
 }
 - (void)removeFromSuperview
