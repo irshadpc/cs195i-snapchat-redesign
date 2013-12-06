@@ -21,7 +21,7 @@
     self = [super initWithStyle:style];
     if (self) {
         UITabBarItem *tbi = [self tabBarItem];
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"messages:" image:[UIImage imageNamed:@"messages"] selectedImage:[UIImage imageNamed:@"messages"]];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Messages" image:[UIImage imageNamed:@"messagesTab"] selectedImage:[UIImage imageNamed:@"messagesTab"]];
         [tbi setTitle: @"Messages"];
         [tbi setImage: [UIImage imageNamed:@"messagesTab"]];
                 [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor :[UIColor lightGreenColor] }

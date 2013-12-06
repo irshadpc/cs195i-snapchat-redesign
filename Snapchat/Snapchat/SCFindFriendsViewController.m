@@ -30,11 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *imgNavLog = [UIImage imageNamed:@"starBullet"];
-    UIBarButtonItem *left= [[UIBarButtonItem alloc] initWithImage:(imgNavLog) style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
-    left.tintColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = left;
-
+    UIImage *imgNavLog = [UIImage imageNamed:@"backSmall"];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:(imgNavLog) style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+    leftButton.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
 	// Do any additional setup after loading the view.
 }
 - (void)dismiss

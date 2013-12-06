@@ -26,7 +26,7 @@ static const NSInteger TagOffset = 1000;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *imgNavLog = [UIImage imageNamed:@"starBullet"];
+    UIImage *imgNavLog = [UIImage imageNamed:@"addFriend"];
     UIBarButtonItem *rightbutton= [[UIBarButtonItem alloc] initWithImage:(imgNavLog) style:UIBarButtonItemStylePlain target:self action:@selector(presentFindFriends)];
     rightbutton.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = rightbutton;

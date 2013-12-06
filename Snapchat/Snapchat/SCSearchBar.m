@@ -20,14 +20,15 @@
         self.textField.layer.borderColor = [UIColor whiteColor].CGColor;
         self.textField.layer.borderWidth = 1.0f;
         self.textField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
-        UIImageView *searchIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pusheen"]];
+        UIImageView *searchIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchBig"]];
         UIButton *clearButton = [[UIButton alloc]initWithFrame:CGRectMake(320 - 34, 8, 18, 18)];
-        [clearButton setBackgroundColor:[UIColor redColor]];
+        [clearButton setBackgroundImage:[UIImage imageNamed:@"greyX"] forState:UIControlStateNormal];
+        //[clearButton setBackgroundColor:[UIColor redColor]];
         [clearButton addTarget:self action:@selector(clearButtonSelected) forControlEvents:UIControlEventTouchUpInside];
-        searchIcon.frame = CGRectMake(9, 2, 30, 30);
+        searchIcon.frame = CGRectMake(12, 8, 20, 20);
         [self.textField becomeFirstResponder];
         self.textField.textColor = [UIColor darkGreenColor];
-        self.textField.backgroundColor = [UIColor separatorColor];
+        self.textField.backgroundColor = [UIColor whiteColor];
         [[UITextField appearance] setTintColor:[UIColor darkGreenColor]];
         self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Search for contacts or users" attributes:@{NSForegroundColorAttributeName: [UIColor darkGreenColor]}];
 
