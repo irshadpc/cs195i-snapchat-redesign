@@ -26,7 +26,23 @@
         friend1.nickname = @"Alex Chou";
         [self.contacts addObject:friend1];
         // Custom initialization
+        
+        SCFriend *randomuser1 = [[SCFriend alloc] init];
+        randomuser1.username = @"achang725";
+        randomuser1.nickname = @"achang725";
+        
+        SCFriend *randomuser2 = [[SCFriend alloc] init];
+        randomuser2.username = @"acgreen45";
+        randomuser2.nickname = @"acgreen45";
+        
+        SCFriend *randomuser3 = [[SCFriend alloc] init];
+        randomuser3.username = @"berniemac5000";
+        randomuser3.nickname = @"berniemac5000";
         self.users = [NSMutableArray array];
+        [self.users addObject:randomuser1];
+        [self.users addObject:randomuser2];
+        [self.users addObject:randomuser3];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }
@@ -102,6 +118,9 @@
     
     cell.textLabel.text = user.nickname;
     cell.detailTextLabel.text = user.username;
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
+    separatorLineView.backgroundColor = [UIColor separatorColor]; // set color as you want.
+    [cell.contentView addSubview:separatorLineView];
     
     UIButton *acceptButton = [[UIButton alloc] initWithFrame:CGRectMake(width -40, 12, 24, 24)];
     [acceptButton setImage:[UIImage imageNamed:@"lightGreenCheckSmall"] forState:UIControlStateNormal];
