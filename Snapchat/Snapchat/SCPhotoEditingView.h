@@ -18,9 +18,10 @@
 @property SCDrawingView *drawingview;
 @property UIButton *drawToggleButton;
 @property UIButton *undoButton;
-@property UIButton *whiteToggleButton;
+@property UIButton *blackToggleButton;
 @property UIButton *redToggleButton;
 @property UIButton *saveButton;
 @property UIButton *timeButton;
 @property UIImageView *colorPallet;
+@property UIColor *currColor;
 @end
