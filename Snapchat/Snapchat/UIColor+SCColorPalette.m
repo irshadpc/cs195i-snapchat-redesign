@@ -25,4 +25,8 @@ extern UIColor *separatorColor;
 {
     return [[UIColor alloc] initWithRed:222.0f/255.0f green:222.0f/255.0f blue:222.0f/255.0f alpha:1.0];
 }
++ (UIColor *)paleGreen
+{
+    return  [[UIColor alloc] initWithRed:172.0f/255.0f green:242.0f/255.0f blue:219.0f/255.0f alpha:1.0];
+}
 @end

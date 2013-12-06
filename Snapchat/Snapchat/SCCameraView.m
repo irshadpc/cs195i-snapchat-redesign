@@ -48,10 +48,27 @@
     //self.snapButton.backgroundColor = [UIColor greenColor];
     [self.snapButton addTarget:self action:@selector(takeSnap:) forControlEvents:UIControlEventTouchUpInside];
     self.isSelfie = NO;
+        
+        self.scroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 430, 320, 20)];
+               [self.scroll setBackgroundColor:[UIColor colorWithRed:.1 green:.1 blue:.1 alpha:.7f]];
+        self.scroll.contentSize = CGSizeMake(390, 20);
+        [self.scroll setShowsHorizontalScrollIndicator:NO];
+        [self.scroll setShowsVerticalScrollIndicator:NO];
+        UILabel *video = [[UILabel alloc]initWithFrame:CGRectMake(210, 0, 50, 20)];
+        video.text = @"Video";
+        UILabel *photo = [[UILabel alloc]initWithFrame:CGRectMake(135, 0, 50, 20)];
+        photo.text = @"Photo";
+        photo.textColor = [UIColor grayColor];
+        video.textColor = [UIColor grayColor];
+
+        [self.scroll addSubview:photo];
+        [self.scroll addSubview:video];
+        
     [self addSubview: self.background_image_view];
     [self addSubview:self.menuButton];
     [self addSubview:self.switchButton];
     [self addSubview:self.snapButton];
+        [self addSubview:self.scroll];
     }
     return self;
 }
