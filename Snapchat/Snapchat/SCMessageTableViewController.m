@@ -29,25 +29,89 @@
         SCMessage *message1 = [[SCMessage alloc]init];
         message1.seen = false;
         message1.sender = @"Jake Kaufman";
-        message1.timestamp = [NSDate date];
+        message1.timestamp = @"Just Now";
         message1.isVideo = false;
         
         SCMessage *message2 = [[SCMessage alloc]init];
-        message2.seen = false;
-        message2.sender = @"Jake Kaufman";
-        message2.timestamp = [NSDate date];
+        message2.seen = true;
+        message2.sender = @"Alex Chou";
+        message2.timestamp = @"3 hours ago";
         message2.isVideo = false;
         
         SCMessage *message3 = [[SCMessage alloc]init];
         message3.seen = true;
         message3.sender = @"Jake Kaufman";
-        message3.timestamp = [NSDate date];
-        message3.isVideo = false;
+        message3.timestamp = @"5 hours ago";
+        message3.isVideo = true;
+        
+        SCMessage *message4 = [[SCMessage alloc]init];
+        message4.seen = true;
+        message4.sender = @"Jessica Liang";
+        message4.timestamp = @"Dec 04 11:52AM";
+        message4.isVideo = false;
+        
+        SCMessage *message5 = [[SCMessage alloc]init];
+        message5.seen = true;
+        message5.sender = @"Jake Kaufman";
+        message5.timestamp = @"Dec 04 4:30AM";
+        message5.isVideo = false;
+        
+        SCMessage *message6 = [[SCMessage alloc]init];
+        message6.seen = true;
+        message6.sender = @"Alex Chou";
+        message6.timestamp = @"Dec 03 11:11PM";
+        message6.isVideo = true;
+        
+        SCMessage *message7 = [[SCMessage alloc]init];
+        message7.seen = true;
+        message7.sender = @"Evan Li";
+        message7.timestamp = @"Dec 02 1:29PM";
+        message7.isVideo = false;
+        
+        SCMessage *message8 = [[SCMessage alloc]init];
+        message8.seen = true;
+        message8.sender = @"Jake Kaufman";
+        message8.timestamp = @"Dec 02 1:00PM";
+        message8.isVideo = false;
+        
+        SCMessage *message9 = [[SCMessage alloc]init];
+        message9.seen = true;
+        message9.sender = @"Evan Li";
+        message9.timestamp = @"Dec 01 10:58AM";
+        message9.isVideo = true;
+        
+        SCMessage *message10 = [[SCMessage alloc]init];
+        message10.seen = true;
+        message10.sender = @"Jake Kaufman";
+        message10.timestamp = @"Dec 01 1:23AM";
+        message10.isVideo = false;
+        
+        SCMessage *message11 = [[SCMessage alloc]init];
+        message11.seen = true;
+        message11.sender = @"Jake Kaufman";
+        message11.timestamp = @"Nov 28 5:47PM";
+        message11.isVideo = false;
+        
+        SCMessage *message12 = [[SCMessage alloc]init];
+        message12.seen = true;
+        message12.sender = @"Alex Chou";
+        message12.timestamp = @"Nov 28 3:19PM";
+        message12.isVideo = true;
         
         self.messages = [NSMutableArray array];
         [self.messages addObject: message1];
         [self.messages addObject: message2];
         [self.messages addObject:message3];
+        [self.messages addObject:message4];
+        [self.messages addObject:message5];
+        [self.messages addObject:message6];
+        [self.messages addObject:message7];
+        [self.messages addObject:message8];
+        [self.messages addObject:message9];
+        [self.messages addObject:message10];
+        [self.messages addObject:message11];
+        [self.messages addObject:message12];
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     }
