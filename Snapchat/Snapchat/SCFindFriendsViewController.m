@@ -28,13 +28,22 @@
         self.tvc.tableView.frame = frame;
         //self.tvc.delegate = self.delegate;
         self.bar = [[SCSearchBar alloc]init];
-        [self.view addSubview:self.tvc.tableView];
+        self.bar.textField.delegate = self;
+        [self.view setBackgroundColor: [UIColor whiteColor]];
+       // [self.view addSubview:self.tvc.tableView];
         [self.view addSubview:self.bar];
         // Custom initialization
         
 }
     return self;
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self.view addSubview:self.tvc.view];
+    return  YES;
+}
+
 - (void)returnToCamera
 {
     [self presentViewController:[[SCCameraViewController alloc] init] animated:NO completion:nil];
