@@ -352,7 +352,7 @@
         cell.textLabel.text = currentFriend.nickname;
         cell.detailTextLabel.text = currentFriend.username;
     }
-
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
