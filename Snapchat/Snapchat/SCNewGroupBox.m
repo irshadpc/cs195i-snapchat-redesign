@@ -26,6 +26,7 @@
 
         self.name = [[UITextField alloc] initWithFrame:CGRectMake(30,10,200,30)];
         self.name.textAlignment = UITextAlignmentCenter;
+        self.name.delegate = self;
         
         self.addButton = [[UIButton alloc]initWithFrame:CGRectMake(30, 50, 200, 30)];
 
@@ -94,7 +95,10 @@
                                           }];
                      }];
 }
-
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

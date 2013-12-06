@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SCGroupLightBox.h"
-@interface SCNewGroupBox : UIView
+@interface SCNewGroupBox : UIView <UITextFieldDelegate>
 @property UITextField *name;
 @property UIButton *addButton;
 @property UIButton *saveButton;
