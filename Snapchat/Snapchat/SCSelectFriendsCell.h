@@ -11,4 +11,5 @@
 @interface SCSelectFriendsCell : UITableViewCell
 @property UIButton *unselectedButton;
 @property UIButton *selectedButton;
+- (void)hideButton;
 @end

@@ -169,7 +169,7 @@
         return  nil;
     }
     UIView *tempView=[[UIView alloc]initWithFrame:CGRectMake(0,0,320,20)];
-    tempView.backgroundColor=[UIColor lightGreenColor];
+    tempView.backgroundColor=[UIColor paleGreen];
     
     UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(10,2,310,20)];
     tempLabel.backgroundColor=[UIColor clearColor];
