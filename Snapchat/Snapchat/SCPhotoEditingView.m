@@ -11,6 +11,7 @@
 #import "UIColor+SCColorPalette.h"
 #import "SCFriendSelectController.h"
 @implementation SCPhotoEditingView
+@synthesize delegate;
 @synthesize drawToggleButton;
 @synthesize undoButton;
 @synthesize blackToggleButton;
@@ -19,6 +20,7 @@
 @synthesize saveButton;
 @synthesize timeButton;
 @synthesize currColor;
+@synthesize timerImageArray;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -36,6 +38,7 @@
         [self.saveButton setBackgroundImage:[UIImage imageNamed:@"download"] forState:UIControlStateNormal];
         self.timeButton = [[UIButton alloc]initWithFrame:CGRectMake(width - 40, 30, 30, 30)];
         [self.timeButton setBackgroundImage:[UIImage imageNamed:@"timer3"] forState:UIControlStateNormal];
+        [self.timeButton addTarget:self action:@selector(timerPicker:) forControlEvents:UIControlEventTouchUpInside];
         UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectMake(width - 70, height - 42, 60, 30)];
         [sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlEventTouchUpInside];
         [sendButton setBackgroundImage:[UIImage imageNamed:@"sendButton"] forState:UIControlStateNormal];
@@ -57,6 +60,18 @@
         self.drawingview = [[SCDrawingView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
         self.drawingview.drawingOn = NO;
         self.currColor = [UIColor redColor];
+        timerImageArray = [NSMutableArray array];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer1"]];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer2"]];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer3"]];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer4"]];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer5"]];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer6"]];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer7"]];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer8"]];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer9"]];
+        [timerImageArray addObject:[UIImage imageNamed:@"timer10"]];
+
         [self addSubview:self.drawingview];
         [self addSubview:exitButton];
         [self addSubview:sendButton];
@@ -118,6 +133,9 @@
     }
     [self.undoButton setBackgroundColor:self.currColor];
     [self.drawToggleButton setBackgroundColor:self.currColor];
+}
+- (void) timerPicker:(UIButton *)sender {
+    return;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

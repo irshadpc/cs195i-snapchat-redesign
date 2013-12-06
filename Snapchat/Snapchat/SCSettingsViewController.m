@@ -33,6 +33,7 @@
         settingsPickerView = [[UIPickerView alloc] initWithFrame: CGRectMake(0, 0, 320, 120)];
         settingsPickerView.delegate = self;
         settingsPickerView.showsSelectionIndicator = YES;
+        [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTap:)]];
         ((SCSettingsView *)self.view).privacy_field.inputView  = settingsPickerView;
         //[settingsPickerView setBackgroundColor:[UIColor redColor]];
         
@@ -43,7 +44,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,7 +63,7 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if (row == 0) return @"Friends";
+    if (row == 0) return @"My Friends";
     return @"Everyone";
 }
 
@@ -71,5 +71,7 @@
     int sectionWidth = 300;
     return sectionWidth;
 }
-
+-(void)backgroundTap:(UITapGestureRecognizer *)tapGR{
+    [((SCSettingsView *)self.view).privacy_field resignFirstResponder];
+}
 @end

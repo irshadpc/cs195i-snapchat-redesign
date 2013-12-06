@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SCCameraViewController.h"
 #import "SCPhotoEditingView.h"
-@interface SCPhotoEditingViewController : UIViewController<SCPhotoEditingDelegate>
+@interface SCPhotoEditingViewController : UIViewController<SCPhotoEditingDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 @property SCCameraViewController* cameraVC;
+@property UIPickerView *timerPickerView;
 @end
